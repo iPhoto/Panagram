@@ -1,0 +1,376 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B21AFE8A163F572C00F40941 /* CameraAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21AFE7E163F572B00F40941 /* CameraAppViewController.m */; };
+		B21AFE8B163F572C00F40941 /* FeedStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = B21AFE80163F572B00F40941 /* FeedStructure.m */; };
+		B21AFE8C163F572C00F40941 /* ImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21AFE81163F572B00F40941 /* ImageView.xib */; };
+		B21AFE8D163F572C00F40941 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B21AFE83163F572B00F40941 /* MyCollectionViewCell.m */; };
+		B21AFE8E163F572C00F40941 /* MyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21AFE85163F572B00F40941 /* MyCollectionViewController.m */; };
+		B21AFE8F163F572C00F40941 /* SimpleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B21AFE88163F572B00F40941 /* SimpleTableCell.m */; };
+		B21AFE90163F572C00F40941 /* SimpleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21AFE89163F572B00F40941 /* SimpleTableCell.xib */; };
+		B2BADDCB163F5692002C6477 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BADDCA163F5692002C6477 /* UIKit.framework */; };
+		B2BADDCD163F5692002C6477 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BADDCC163F5692002C6477 /* Foundation.framework */; };
+		B2BADDCF163F5692002C6477 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BADDCE163F5692002C6477 /* CoreGraphics.framework */; };
+		B2BADDD5163F5692002C6477 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2BADDD3163F5692002C6477 /* InfoPlist.strings */; };
+		B2BADDD7163F5692002C6477 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BADDD6163F5692002C6477 /* main.m */; };
+		B2BADDDB163F5692002C6477 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BADDDA163F5692002C6477 /* AppDelegate.m */; };
+		B2BADDDD163F5692002C6477 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B2BADDDC163F5692002C6477 /* Default.png */; };
+		B2BADDDF163F5692002C6477 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2BADDDE163F5692002C6477 /* Default@2x.png */; };
+		B2BADDE1163F5692002C6477 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2BADDE0163F5692002C6477 /* Default-568h@2x.png */; };
+		B2BADDE4163F5692002C6477 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2BADDE2163F5692002C6477 /* MainStoryboard_iPhone.storyboard */; };
+		B2BADDE7163F5692002C6477 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2BADDE5163F5692002C6477 /* MainStoryboard_iPad.storyboard */; };
+		B2BADDEA163F5692002C6477 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BADDE9163F5692002C6477 /* FirstViewController.m */; };
+		B2BADDEC163F5692002C6477 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = B2BADDEB163F5692002C6477 /* first.png */; };
+		B2BADDEE163F5692002C6477 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2BADDED163F5692002C6477 /* first@2x.png */; };
+		B2BADDF1163F5692002C6477 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BADDF0163F5692002C6477 /* SecondViewController.m */; };
+		B2BADDF3163F5692002C6477 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = B2BADDF2163F5692002C6477 /* second.png */; };
+		B2BADDF5163F5692002C6477 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2BADDF4163F5692002C6477 /* second@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B21AFE7D163F572B00F40941 /* CameraAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraAppViewController.h; sourceTree = "<group>"; };
+		B21AFE7E163F572B00F40941 /* CameraAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraAppViewController.m; sourceTree = "<group>"; };
+		B21AFE7F163F572B00F40941 /* FeedStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedStructure.h; sourceTree = "<group>"; };
+		B21AFE80163F572B00F40941 /* FeedStructure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedStructure.m; sourceTree = "<group>"; };
+		B21AFE81163F572B00F40941 /* ImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageView.xib; sourceTree = "<group>"; };
+		B21AFE82163F572B00F40941 /* MyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
+		B21AFE83163F572B00F40941 /* MyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
+		B21AFE84163F572B00F40941 /* MyCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewController.h; sourceTree = "<group>"; };
+		B21AFE85163F572B00F40941 /* MyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewController.m; sourceTree = "<group>"; };
+		B21AFE86163F572B00F40941 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		B21AFE87163F572B00F40941 /* SimpleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTableCell.h; sourceTree = "<group>"; };
+		B21AFE88163F572B00F40941 /* SimpleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTableCell.m; sourceTree = "<group>"; };
+		B21AFE89163F572B00F40941 /* SimpleTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleTableCell.xib; sourceTree = "<group>"; };
+		B2BADDC6163F5692002C6477 /* Panagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Panagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2BADDCA163F5692002C6477 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B2BADDCC163F5692002C6477 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B2BADDCE163F5692002C6477 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B2BADDD2163F5692002C6477 /* Panagram-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Panagram-Info.plist"; sourceTree = "<group>"; };
+		B2BADDD4163F5692002C6477 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B2BADDD6163F5692002C6477 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B2BADDD8163F5692002C6477 /* Panagram-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Panagram-Prefix.pch"; sourceTree = "<group>"; };
+		B2BADDD9163F5692002C6477 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B2BADDDA163F5692002C6477 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B2BADDDC163F5692002C6477 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		B2BADDDE163F5692002C6477 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		B2BADDE0163F5692002C6477 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B2BADDE3163F5692002C6477 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		B2BADDE6163F5692002C6477 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		B2BADDE8163F5692002C6477 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		B2BADDE9163F5692002C6477 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		B2BADDEB163F5692002C6477 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		B2BADDED163F5692002C6477 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		B2BADDEF163F5692002C6477 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		B2BADDF0163F5692002C6477 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		B2BADDF2163F5692002C6477 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		B2BADDF4163F5692002C6477 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B2BADDC3163F5692002C6477 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2BADDCB163F5692002C6477 /* UIKit.framework in Frameworks */,
+				B2BADDCD163F5692002C6477 /* Foundation.framework in Frameworks */,
+				B2BADDCF163F5692002C6477 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B2BADDBB163F5692002C6477 = {
+			isa = PBXGroup;
+			children = (
+				B2BADDD0163F5692002C6477 /* Panagram */,
+				B2BADDC9163F5692002C6477 /* Frameworks */,
+				B2BADDC7163F5692002C6477 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B2BADDC7163F5692002C6477 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B2BADDC6163F5692002C6477 /* Panagram.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B2BADDC9163F5692002C6477 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2BADDCA163F5692002C6477 /* UIKit.framework */,
+				B2BADDCC163F5692002C6477 /* Foundation.framework */,
+				B2BADDCE163F5692002C6477 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B2BADDD0163F5692002C6477 /* Panagram */ = {
+			isa = PBXGroup;
+			children = (
+				B21AFE7D163F572B00F40941 /* CameraAppViewController.h */,
+				B21AFE7E163F572B00F40941 /* CameraAppViewController.m */,
+				B21AFE7F163F572B00F40941 /* FeedStructure.h */,
+				B21AFE80163F572B00F40941 /* FeedStructure.m */,
+				B21AFE81163F572B00F40941 /* ImageView.xib */,
+				B21AFE82163F572B00F40941 /* MyCollectionViewCell.h */,
+				B21AFE83163F572B00F40941 /* MyCollectionViewCell.m */,
+				B21AFE84163F572B00F40941 /* MyCollectionViewController.h */,
+				B21AFE85163F572B00F40941 /* MyCollectionViewController.m */,
+				B21AFE86163F572B00F40941 /* NavigationController.h */,
+				B21AFE87163F572B00F40941 /* SimpleTableCell.h */,
+				B21AFE88163F572B00F40941 /* SimpleTableCell.m */,
+				B21AFE89163F572B00F40941 /* SimpleTableCell.xib */,
+				B2BADDD9163F5692002C6477 /* AppDelegate.h */,
+				B2BADDDA163F5692002C6477 /* AppDelegate.m */,
+				B2BADDE2163F5692002C6477 /* MainStoryboard_iPhone.storyboard */,
+				B2BADDE5163F5692002C6477 /* MainStoryboard_iPad.storyboard */,
+				B2BADDE8163F5692002C6477 /* FirstViewController.h */,
+				B2BADDE9163F5692002C6477 /* FirstViewController.m */,
+				B2BADDEB163F5692002C6477 /* first.png */,
+				B2BADDED163F5692002C6477 /* first@2x.png */,
+				B2BADDEF163F5692002C6477 /* SecondViewController.h */,
+				B2BADDF0163F5692002C6477 /* SecondViewController.m */,
+				B2BADDF2163F5692002C6477 /* second.png */,
+				B2BADDF4163F5692002C6477 /* second@2x.png */,
+				B2BADDD1163F5692002C6477 /* Supporting Files */,
+			);
+			path = Panagram;
+			sourceTree = "<group>";
+		};
+		B2BADDD1163F5692002C6477 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B2BADDD2163F5692002C6477 /* Panagram-Info.plist */,
+				B2BADDD3163F5692002C6477 /* InfoPlist.strings */,
+				B2BADDD6163F5692002C6477 /* main.m */,
+				B2BADDD8163F5692002C6477 /* Panagram-Prefix.pch */,
+				B2BADDDC163F5692002C6477 /* Default.png */,
+				B2BADDDE163F5692002C6477 /* Default@2x.png */,
+				B2BADDE0163F5692002C6477 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B2BADDC5163F5692002C6477 /* Panagram */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2BADDF8163F5692002C6477 /* Build configuration list for PBXNativeTarget "Panagram" */;
+			buildPhases = (
+				B2BADDC2163F5692002C6477 /* Sources */,
+				B2BADDC3163F5692002C6477 /* Frameworks */,
+				B2BADDC4163F5692002C6477 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Panagram;
+			productName = Panagram;
+			productReference = B2BADDC6163F5692002C6477 /* Panagram.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B2BADDBD163F5692002C6477 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Hi Dev Mobile";
+			};
+			buildConfigurationList = B2BADDC0163F5692002C6477 /* Build configuration list for PBXProject "Panagram" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B2BADDBB163F5692002C6477;
+			productRefGroup = B2BADDC7163F5692002C6477 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B2BADDC5163F5692002C6477 /* Panagram */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B2BADDC4163F5692002C6477 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2BADDD5163F5692002C6477 /* InfoPlist.strings in Resources */,
+				B2BADDDD163F5692002C6477 /* Default.png in Resources */,
+				B2BADDDF163F5692002C6477 /* Default@2x.png in Resources */,
+				B2BADDE1163F5692002C6477 /* Default-568h@2x.png in Resources */,
+				B2BADDE4163F5692002C6477 /* MainStoryboard_iPhone.storyboard in Resources */,
+				B2BADDE7163F5692002C6477 /* MainStoryboard_iPad.storyboard in Resources */,
+				B2BADDEC163F5692002C6477 /* first.png in Resources */,
+				B2BADDEE163F5692002C6477 /* first@2x.png in Resources */,
+				B2BADDF3163F5692002C6477 /* second.png in Resources */,
+				B2BADDF5163F5692002C6477 /* second@2x.png in Resources */,
+				B21AFE8C163F572C00F40941 /* ImageView.xib in Resources */,
+				B21AFE90163F572C00F40941 /* SimpleTableCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B2BADDC2163F5692002C6477 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2BADDD7163F5692002C6477 /* main.m in Sources */,
+				B2BADDDB163F5692002C6477 /* AppDelegate.m in Sources */,
+				B2BADDEA163F5692002C6477 /* FirstViewController.m in Sources */,
+				B2BADDF1163F5692002C6477 /* SecondViewController.m in Sources */,
+				B21AFE8A163F572C00F40941 /* CameraAppViewController.m in Sources */,
+				B21AFE8B163F572C00F40941 /* FeedStructure.m in Sources */,
+				B21AFE8D163F572C00F40941 /* MyCollectionViewCell.m in Sources */,
+				B21AFE8E163F572C00F40941 /* MyCollectionViewController.m in Sources */,
+				B21AFE8F163F572C00F40941 /* SimpleTableCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B2BADDD3163F5692002C6477 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2BADDD4163F5692002C6477 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B2BADDE2163F5692002C6477 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2BADDE3163F5692002C6477 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		B2BADDE5163F5692002C6477 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2BADDE6163F5692002C6477 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B2BADDF6163F5692002C6477 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B2BADDF7163F5692002C6477 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B2BADDF9163F5692002C6477 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Panagram/Panagram-Prefix.pch";
+				INFOPLIST_FILE = "Panagram/Panagram-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B2BADDFA163F5692002C6477 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Panagram/Panagram-Prefix.pch";
+				INFOPLIST_FILE = "Panagram/Panagram-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B2BADDC0163F5692002C6477 /* Build configuration list for PBXProject "Panagram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2BADDF6163F5692002C6477 /* Debug */,
+				B2BADDF7163F5692002C6477 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2BADDF8163F5692002C6477 /* Build configuration list for PBXNativeTarget "Panagram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2BADDF9163F5692002C6477 /* Debug */,
+				B2BADDFA163F5692002C6477 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B2BADDBD163F5692002C6477 /* Project object */;
+}

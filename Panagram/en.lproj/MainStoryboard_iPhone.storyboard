@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+    </dependencies>
+    <scenes>
+        <!--My Collection View Controller - Popular-->
+        <scene sceneID="2Ma-AS-Vyd">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="Smu-gO-2nx" customClass="MyCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="3At-1S-IIs">
+                        <rect key="frame" x="0.0" y="20" width="568" height="251"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iSM-Te-dah">
+                            <size key="itemSize" width="100" height="100"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyCell" id="OSN-WT-rbb" customClass="MyCollectionViewCell">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4d-3K-UDM">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="LKC-6x-7Yr"/>
+                                                <constraint firstAttribute="height" constant="80" id="ndB-XJ-XvF"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="u4d-3K-UDM" firstAttribute="centerX" secondItem="OSN-WT-rbb" secondAttribute="centerX" type="default" id="48D-Uy-ab4"/>
+                                    <constraint firstItem="u4d-3K-UDM" firstAttribute="centerY" secondItem="OSN-WT-rbb" secondAttribute="centerY" type="default" id="5N6-af-tw4"/>
+                                </constraints>
+                                <size key="customSize" width="100" height="100"/>
+                                <connections>
+                                    <outlet property="imageView" destination="u4d-3K-UDM" id="QNa-s3-PWi"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="Smu-gO-2nx" id="CAB-vh-i4E"/>
+                            <outlet property="delegate" destination="Smu-gO-2nx" id="Ehd-xU-jAE"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Popular" image="second" id="Oit-OV-zKA"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fF8-EU-I9Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="627" y="-1"/>
+        </scene>
+        <!--Table View Controller - Home-->
+        <scene sceneID="AdE-Ww-u2R">
+            <objects>
+                <tableViewController id="2Re-Bf-Fl2" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Home" id="1Tp-KC-wXn"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ijV-pi-e2q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1424" y="148"/>
+        </scene>
+        <!--Navigation Controller - Panagram-->
+        <scene sceneID="ln0-IK-uye">
+            <objects>
+                <navigationController title="Panagram" definesPresentationContext="YES" id="hUp-RR-80d" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="first.png" id="RIZ-DD-kZA"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" id="893-EX-Je3">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.54973492869999996" green="1" blue="0.46008494259999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="N0m-6z-dzp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SJJ-Oc-lWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-32" y="-417"/>
+        </scene>
+        <!--First View Controller - First-->
+        <scene sceneID="11">
+            <objects>
+                <viewController title="First" id="2" customClass="FirstViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="16">
+                        <rect key="frame" x="0.0" y="64" width="568" height="207"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="184" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aCh-ve-yYz">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedTable" rowHeight="184" id="vbY-9v-D0K">
+                                        <rect key="frame" x="0.0" y="22" width="568" height="184"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="568" height="183"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2" id="XXO-D6-JE6"/>
+                                    <outlet property="delegate" destination="2" id="Lra-WE-QvG"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aCh-ve-yYz" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="5bi-62-6gO"/>
+                            <constraint firstItem="aCh-ve-yYz" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="HKA-jq-qpp"/>
+                            <constraint firstItem="aCh-ve-yYz" firstAttribute="bottom" secondItem="16" secondAttribute="bottom" type="default" id="JJd-DB-Gps"/>
+                            <constraint firstItem="aCh-ve-yYz" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="PeN-xL-FGv"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="first" id="7"/>
+                    <navigationItem key="navigationItem" title="Panagram" id="bnN-YN-O0c">
+                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="zFf-Qb-h7F"/>
+                    </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="myTable" destination="aCh-ve-yYz" id="VQV-Us-ZQD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="627" y="-417"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="15">
+            <objects>
+                <tabBarController id="4" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="5">
+                        <rect key="frame" x="0.0" y="431" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="hUp-RR-80d" kind="relationship" relationship="viewControllers" id="3TA-kx-V8U"/>
+                        <segue destination="Smu-gO-2nx" kind="relationship" relationship="viewControllers" id="eDP-uN-ITh"/>
+                        <segue destination="IJq-xG-NSF" kind="relationship" relationship="viewControllers" id="Qev-v5-hx5"/>
+                        <segue destination="N4B-GV-TPZ" kind="relationship" relationship="viewControllers" id="pKr-IN-t6L"/>
+                        <segue destination="Hl7-Fx-NjF" kind="relationship" relationship="viewControllers" id="XD4-td-Udc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-108" y="298"/>
+        </scene>
+        <!--Camera App View Controller - Camera-->
+        <scene sceneID="YvG-Ma-b3r">
+            <objects>
+                <viewController title="Camera" id="IJq-xG-NSF" customClass="CameraAppViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ApV-I6-cal">
+                        <rect key="frame" x="0.0" y="20" width="568" height="251"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R7O-gX-awE">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="cCO-uF-Ye0"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEH-p6-Ryz">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="KXh-xP-84n"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Choose">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getPhoto:" destination="IJq-xG-NSF" eventType="touchUpInside" id="XiV-JR-XVt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SA5-Iv-0bq">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="pyO-qt-Aa1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Take">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getPhoto:" destination="IJq-xG-NSF" eventType="touchUpInside" id="qKu-B7-jHY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R7O-gX-awE" firstAttribute="trailing" secondItem="ApV-I6-cal" secondAttribute="trailing" type="default" id="GBR-gN-eb5"/>
+                            <constraint firstItem="SA5-Iv-0bq" firstAttribute="top" secondItem="DEH-p6-Ryz" secondAttribute="top" type="default" id="Qf5-Bg-Jsu"/>
+                            <constraint firstItem="DEH-p6-Ryz" firstAttribute="bottom" secondItem="ApV-I6-cal" secondAttribute="bottom" type="default" id="UYN-fs-loe"/>
+                            <constraint firstItem="R7O-gX-awE" firstAttribute="leading" secondItem="ApV-I6-cal" secondAttribute="leading" type="default" id="lb2-BP-46G"/>
+                            <constraint firstAttribute="trailing" secondItem="SA5-Iv-0bq" secondAttribute="trailing" constant="216" id="nkH-cO-2hv"/>
+                            <constraint firstItem="DEH-p6-Ryz" firstAttribute="leading" secondItem="ApV-I6-cal" secondAttribute="leading" constant="153" id="qx5-84-Pi4"/>
+                            <constraint firstItem="R7O-gX-awE" firstAttribute="top" secondItem="ApV-I6-cal" secondAttribute="top" constant="-7" id="sqa-VT-qNb"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Camera" image="first" id="W3S-2p-Rqa"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="choosePhotoBtn" destination="DEH-p6-Ryz" id="wRL-z8-Ulb"/>
+                        <outlet property="imageView" destination="R7O-gX-awE" id="Zx3-sf-cN5"/>
+                        <outlet property="takePhotoBtn" destination="SA5-Iv-0bq" id="ARy-ur-kV7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rtY-5v-omU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="627" y="420"/>
+        </scene>
+        <!--View Controller - Popular-->
+        <scene sceneID="zUZ-qY-AhN">
+            <objects>
+                <viewController title="Popular" id="N4B-GV-TPZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vsT-3N-8tj">
+                        <rect key="frame" x="0.0" y="20" width="568" height="251"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="ZYL-P3-VGX">
+                                <items>
+                                    <navigationItem title="Search" id="MFg-3D-Ixt"/>
+                                </items>
+                            </navigationBar>
+                            <searchBar contentMode="redraw" barStyle="blackOpaque" text="" translatesAutoresizingMaskIntoConstraints="NO" id="9yg-gd-6Xm">
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="N4B-GV-TPZ" id="LKq-WZ-vgm"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZYL-P3-VGX" firstAttribute="top" secondItem="vsT-3N-8tj" secondAttribute="top" type="default" id="2pi-fy-mHa"/>
+                            <constraint firstItem="9yg-gd-6Xm" firstAttribute="leading" secondItem="vsT-3N-8tj" secondAttribute="leading" type="default" id="8f9-2G-6FR"/>
+                            <constraint firstItem="ZYL-P3-VGX" firstAttribute="leading" secondItem="vsT-3N-8tj" secondAttribute="leading" type="default" id="NdS-16-Ih3"/>
+                            <constraint firstItem="9yg-gd-6Xm" firstAttribute="top" secondItem="ZYL-P3-VGX" secondAttribute="bottom" type="default" id="TLW-c4-qKE"/>
+                            <constraint firstItem="9yg-gd-6Xm" firstAttribute="trailing" secondItem="vsT-3N-8tj" secondAttribute="trailing" type="default" id="YoX-hV-8Ez"/>
+                            <constraint firstItem="ZYL-P3-VGX" firstAttribute="trailing" secondItem="vsT-3N-8tj" secondAttribute="trailing" type="default" id="jq7-u7-a4l"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Search" image="first.png" id="EsP-7B-A9T"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="Ix7-It-3X3" id="Oxm-n2-DOJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q1N-7o-ImM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Ix7-It-3X3">
+                    <connections>
+                        <outlet property="delegate" destination="N4B-GV-TPZ" id="egb-3S-DiA"/>
+                        <outlet property="searchBar" destination="9yg-gd-6Xm" id="mz1-Mi-CfI"/>
+                        <outlet property="searchContentsController" destination="N4B-GV-TPZ" id="eN4-Bt-COO"/>
+                        <outlet property="searchResultsDataSource" destination="N4B-GV-TPZ" id="J9M-ty-VRn"/>
+                        <outlet property="searchResultsDelegate" destination="N4B-GV-TPZ" id="lnG-ux-Y77"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="627" y="848"/>
+        </scene>
+        <!--Navigation Controller - Profile-->
+        <scene sceneID="Wec-HO-O7v">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="Hl7-Fx-NjF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" id="5rL-ri-rvg"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="f8w-Ue-mtR">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="OkZ-dG-ydK" kind="relationship" relationship="rootViewController" id="PRF-7H-Hvd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dPc-yW-ykZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-293" y="1139"/>
+        </scene>
+        <!--View Controller - Profile-->
+        <scene sceneID="rT3-OF-Che">
+            <objects>
+                <viewController title="Profile" id="OkZ-dG-ydK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Q2x-Cx-oxF">
+                        <rect key="frame" x="0.0" y="64" width="568" height="207"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FUw-1E-fjC">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="4X0-k0-uXR"/>
+                                    <constraint firstAttribute="width" constant="70" id="lsI-x8-jQD"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="User" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Btc-PX-XD7">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYN-i0-mEk">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="FYN-i0-mEk" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="8wG-bl-ihX"/>
+                            <constraint firstItem="Btc-PX-XD7" firstAttribute="top" secondItem="Q2x-Cx-oxF" secondAttribute="top" constant="43" id="Gcg-JE-YEr"/>
+                            <constraint firstItem="FUw-1E-fjC" firstAttribute="leading" secondItem="Q2x-Cx-oxF" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="d32-Ee-zF8"/>
+                            <constraint firstItem="FUw-1E-fjC" firstAttribute="top" secondItem="Q2x-Cx-oxF" secondAttribute="top" constant="20" symbolic="YES" type="default" id="hCY-wO-9Dk"/>
+                            <constraint firstItem="FYN-i0-mEk" firstAttribute="top" secondItem="Q2x-Cx-oxF" secondAttribute="top" constant="20" symbolic="YES" type="default" id="jpr-PE-dFQ"/>
+                            <constraint firstItem="Btc-PX-XD7" firstAttribute="leading" secondItem="Q2x-Cx-oxF" secondAttribute="leading" constant="103" id="rOE-g0-cfR"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="second.png" id="NAa-b1-Uj7"/>
+                    <navigationItem key="navigationItem" title="Profile" id="6O2-qc-brs"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S5O-cc-LrG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="627" y="1263"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="first" width="16" height="16"/>
+        <image name="first.png" width="30" height="30"/>
+        <image name="second" width="16" height="16"/>
+        <image name="second.png" width="30" height="30"/>
+    </resources>
+    <classes>
+        <class className="CameraAppViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CameraAppViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="getPhoto:"/>
+                <relationship kind="outlet" name="choosePhotoBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="takePhotoBtn" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="FirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MyCollectionViewCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyCollectionViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="MyCollectionViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyCollectionViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
