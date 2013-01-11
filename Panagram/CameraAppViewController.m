@@ -7,6 +7,7 @@
 //
 
 #import "CameraAppViewController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface CameraAppViewController ()
 
@@ -34,13 +35,61 @@
 	} else {
 		picker.sourceType = UIImagePickerControllerSourceTypeCamera;
 	}
+    DLCImagePickerController *picker2 = [[DLCImagePickerController alloc] init];
+    picker2.delegate = self;
+    [self presentViewController:picker2 animated:YES completion:nil];
+	//[self presentViewController:picker animated:YES completion:NULL];
+}
+
+-(IBAction) addFilter:(id) sender {
+    //UIStoryboard *storyboard = self.storyboard;
     
-	[self presentViewController:picker animated:YES completion:NULL];
+    //ViewControllerFilters *svc = [storyboard instantiateViewControllerWithIdentifier:@"FilterView"];
+    //svc.origImage = imageView.image;
+    
+    DLCImagePickerController *picker = [[DLCImagePickerController alloc] init];
+    picker.delegate = self;
+    //[self presentModalViewController:picker animated:YES];
+    
+    // Configure the new view controller here.
+    
+    
+    
+    [self presentViewController:picker animated:YES completion:nil];
 }
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-	[picker dismissViewControllerAnimated:YES completion:NULL];
-	imageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+
+-(void) takePhoto:(id)sender{
+    DLCImagePickerController *picker = [[DLCImagePickerController alloc] init];
+    picker.delegate = self;
+    [self presentViewController:picker animated:YES completion:nil];
 }
+
+
+-(void) imagePickerControllerDidCancel:(DLCImagePickerController *)picker{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void) imagePickerController:(DLCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    if (info) {
+        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+        [library writeImageDataToSavedPhotosAlbum:[info objectForKey:@"data"] metadata:nil completionBlock:^(NSURL *assetURL, NSError *error)
+         {
+             if (error) {
+                 NSLog(@"ERROR: the image failed to be written");
+             }
+             else {
+                 NSLog(@"PHOTO SAVED - assetURL: %@", assetURL);
+             }
+         }];
+    }
+}
+//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+	//[picker dismissViewControllerAnimated:YES completion:NULL];
+	//imageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+//}
 
 - (void)viewDidLoad
 {

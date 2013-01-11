@@ -27,8 +27,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    _images = [@[@"http://imageshack.us/a/img577/2921/minecrafti.png",
-                  @"http://imageshack.us/a/img23/5834/roofh.png"] mutableCopy];
+    _images = [@[@"http://cdn3.pcadvisor.co.uk/cmsdata/features/3401121/iPhone-5-panorama-London-Bridge.png",
+                  @"http://upload.wikimedia.org/wikipedia/commons/5/5f/Chicago_Downtown_Panorama.jpg"] mutableCopy];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,25 +53,17 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    MyCollectionViewCell *myCell = [collectionView
-                                    dequeueReusableCellWithReuseIdentifier:@"MyCell"
-                                    forIndexPath:indexPath];
-    
-    //UIImage *image;
+    MyCollectionViewCell *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MyCell" forIndexPath:indexPath];
+    myCell.imageView.image = [UIImage imageNamed:@"Placeholder.png"];
     int row = [indexPath row];
-    
-    //image = [UIImage imageNamed:_images[row]];
-    
-    //myCell.imageView.image = image;
-    
-    
-    NSURL * imageURL = [NSURL URLWithString:_images[row]];
-    NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
-    UIImage * image = [UIImage imageWithData:imageData];
-    myCell.imageView.image = image;
-    
-    
-    
+    dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(concurrentQueue, ^{
+        NSURL * imageURL = [NSURL URLWithString:_images[row]];
+        NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+        UIImage * image = [UIImage imageWithData:imageData];
+        myCell.imageView.image = image;
+    });
+
     return myCell;
 }
 

@@ -12,13 +12,14 @@
 
 @synthesize username;
 @synthesize avatarURL;
+@synthesize avatarImg;
 @synthesize description;
 @synthesize imageURL;
+@synthesize origImage;
 @synthesize rating;
 @synthesize timestamp;
 
 - (NSString *) getStringTimestamp {
-    //NSString * timeStampString =timestamp;
     NSTimeInterval _interval=[timestamp doubleValue];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:_interval];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
