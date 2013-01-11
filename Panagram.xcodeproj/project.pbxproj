@@ -109,9 +109,9 @@
 		B2C631D8168839D400DA0562 /* BlurOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C631D01688398900DA0562 /* BlurOverlayView.m */; };
 		B2C631D9168839DA00DA0562 /* GrayscaleContrastFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C631D41688398900DA0562 /* GrayscaleContrastFilter.m */; };
 		B2C753D716958C10001C78BB /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C753D616958C10001C78BB /* ImageDownloader.m */; };
-		B2CE60EC1698D8D4005572A4 /* FeedList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2CE60EB1698D8D4005572A4 /* FeedList.plist */; };
-		B2CE60EF1698DD50005572A4 /* FeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CE60EE1698DD50005572A4 /* FeedParser.m */; };
 		B2CE9E02168C5FFC00586B15 /* ZoomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2CE9E01168C5FFC00586B15 /* ZoomView.xib */; };
+		B2D5098616A0C94A0067B552 /* FeedList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2D5098316A0C94A0067B552 /* FeedList.plist */; };
+		B2D5098716A0C94A0067B552 /* FeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D5098516A0C94A0067B552 /* FeedParser.m */; };
 		B2DCBED31669BBE200EC3926 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2DCBED21669BBE200EC3926 /* AssetsLibrary.framework */; };
 /* End PBXBuildFile section */
 
@@ -259,10 +259,10 @@
 		B2C631D41688398900DA0562 /* GrayscaleContrastFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrayscaleContrastFilter.m; sourceTree = "<group>"; };
 		B2C631D51688398900DA0562 /* PhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		B2C753D616958C10001C78BB /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
-		B2CE60EB1698D8D4005572A4 /* FeedList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = FeedList.plist; path = ../FeedList.plist; sourceTree = "<group>"; };
-		B2CE60ED1698DD50005572A4 /* FeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedParser.h; path = ../FeedParser.h; sourceTree = "<group>"; };
-		B2CE60EE1698DD50005572A4 /* FeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedParser.m; path = ../FeedParser.m; sourceTree = "<group>"; };
 		B2CE9E01168C5FFC00586B15 /* ZoomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZoomView.xib; sourceTree = "<group>"; };
+		B2D5098316A0C94A0067B552 /* FeedList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FeedList.plist; sourceTree = "<group>"; };
+		B2D5098416A0C94A0067B552 /* FeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedParser.h; sourceTree = "<group>"; };
+		B2D5098516A0C94A0067B552 /* FeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedParser.m; sourceTree = "<group>"; };
 		B2DCBEC51669B7E900EC3926 /* PhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		B2DCBED21669BBE200EC3926 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		B2F207C5164396350043F08C /* ImageDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
@@ -465,9 +465,9 @@
 				B2BADDE5163F5692002C6477 /* MainStoryboard_iPad.storyboard */,
 				B21AFE7F163F572B00F40941 /* FeedStructure.h */,
 				B21AFE80163F572B00F40941 /* FeedStructure.m */,
-				B2CE60ED1698DD50005572A4 /* FeedParser.h */,
-				B2CE60EE1698DD50005572A4 /* FeedParser.m */,
-				B2CE60EB1698D8D4005572A4 /* FeedList.plist */,
+				B2D5098316A0C94A0067B552 /* FeedList.plist */,
+				B2D5098416A0C94A0067B552 /* FeedParser.h */,
+				B2D5098516A0C94A0067B552 /* FeedParser.m */,
 				B2BADDE8163F5692002C6477 /* FirstViewController.h */,
 				B2BADDE9163F5692002C6477 /* FirstViewController.m */,
 				B2F207C5164396350043F08C /* ImageDownloader.h */,
@@ -683,7 +683,7 @@
 				B21DB8BB1688250900B5AF9C /* photo_bar@2x.png in Resources */,
 				B2CE9E02168C5FFC00586B15 /* ZoomView.xib in Resources */,
 				B23889811697793B00A0FF86 /* Placeholder.png in Resources */,
-				B2CE60EC1698D8D4005572A4 /* FeedList.plist in Resources */,
+				B2D5098616A0C94A0067B552 /* FeedList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,8 +708,8 @@
 				B21AFE8F163F572C00F40941 /* SimpleTableCell.m in Sources */,
 				B2C753D716958C10001C78BB /* ImageDownloader.m in Sources */,
 				B238897F16976E0B00A0FF86 /* ZoomView.m in Sources */,
-				B2CE60EF1698DD50005572A4 /* FeedParser.m in Sources */,
 				B2C419C5169A902A0018BC32 /* SearchViewController.m in Sources */,
+				B2D5098716A0C94A0067B552 /* FeedParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
