@@ -62,7 +62,7 @@
     [fs setDescription:@"Image 2 Desc"];
     [fs setTimestamp:@"1304245000"];
     [feedTable addObject:fs];*/
-    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(myTapMethod:)];
+    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(zoomTap:)];
     [tap setNumberOfTouchesRequired:1];
     [tap setNumberOfTapsRequired:1];
     [tap setDelegate:self];
@@ -174,11 +174,8 @@
     return cell;
 }
 
-- (void)myTapMethod:(UIGestureRecognizer *) sender
+- (void)zoomTap:(UIGestureRecognizer *) sender
 {
-    //UIStoryboard *storyboard = self.storyboard;
-    //ZoomView *zoom = [storyboard instantiateViewControllerWithIdentifier:@"ZoomView"];
-    //NSLog(@"Tap");
     ZoomView *zoom = [[ZoomView alloc] initWithNibName:@"ZoomView" bundle:nil];
     int tag = ((UIImageView *) sender.view).tag;
     FeedStructure *fs = [feedTable objectAtIndex:tag];
@@ -214,20 +211,6 @@
     
 	//[myTable reloadData];
 }
-
--(void)myFunction:(id)sender
-{
-    UITapGestureRecognizer *gesture = (UITapGestureRecognizer *) sender;
-    NSLog(@"Tag = %d", gesture.view.tag);
-    //NSIndexPath *selectedIndexPath = [myTable indexPathForSelectedRow];
-    
-    //FeedStructure *fs = (FedStructure *)[[feedTable objectAtIndex:0]];
-    //FeedStructure i = xHat.HID;
-    //NSInteger selectedRow = [myTable ];
-    //[[feedTable objectAtIndex:1] item];
-    //[self.myTable reloadData];
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 225;
@@ -303,5 +286,8 @@
     [self loadImagesForOnscreenRows];
 }
 
+-(NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskLandscape;
+}
 
 @end

@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "MyCollectionViewCell.h"
 
-@interface MyCollectionViewController : UICollectionViewController
-<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface MyCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate> {
+    UITapGestureRecognizer *tap;
+}
 
 @property (strong, nonatomic) NSMutableArray *images;
+@property (strong, nonatomic) NSMutableArray *downloadedImages;
 
 @end

@@ -53,7 +53,7 @@
 //    stillCamera = [[GPUImageStillCamera alloc] initWithSessionPreset:AVCaptureSessionPreset640x480 cameraPosition:AVCaptureDevicePositionBack];
     stillCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
 //    filter = [[GPUImageGammaFilter alloc] init];
-    filter = [[GPUImageSketchFilter alloc] init];
+    filter = [[GPUImageFilter alloc] init];
 //    filter = [[GPUImageUnsharpMaskFilter alloc] init];
 //    [(GPUImageSketchFilter *)filter setTexelHeight:(1.0 / 1024.0)];
 //    [(GPUImageSketchFilter *)filter setTexelWidth:(1.0 / 768.0)];
@@ -70,6 +70,7 @@
     
     [stillCamera addTarget:filter];
     GPUImageView *filterView = (GPUImageView *)self.view;
+
     [filter addTarget:filterView];
 //    [terminalFilter addTarget:filterView];
     

@@ -13,7 +13,9 @@
 
 @end
 
-@implementation CameraAppViewController
+@implementation CameraAppViewController {
+    BOOL isCameraShown;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,10 +37,10 @@
 	} else {
 		picker.sourceType = UIImagePickerControllerSourceTypeCamera;
 	}
-    DLCImagePickerController *picker2 = [[DLCImagePickerController alloc] init];
-    picker2.delegate = self;
-    [self presentViewController:picker2 animated:YES completion:nil];
-	//[self presentViewController:picker animated:YES completion:NULL];
+    //DLCImagePickerController *picker2 = [[DLCImagePickerController alloc] init];
+    //picker2.delegate = self;
+    //[self presentViewController:picker2 animated:YES completion:nil];
+	[self presentViewController:picker animated:YES completion:NULL];
 }
 
 -(IBAction) addFilter:(id) sender {
@@ -66,12 +68,15 @@
 
 
 -(void) imagePickerControllerDidCancel:(DLCImagePickerController *)picker{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:NO completion:^{
+        isCameraShown = false;
+        [self.tabBarController setSelectedIndex:0];
+    }];
 }
 
 -(void) imagePickerController:(DLCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
     
     if (info) {
         ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
@@ -85,11 +90,27 @@
              }
          }];
     }
+    [self dismissViewControllerAnimated:YES completion:^{
+        isCameraShown = false;
+        [self.tabBarController setSelectedIndex:0];
+    }];
 }
 //- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 	//[picker dismissViewControllerAnimated:YES completion:NULL];
 	//imageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
 //}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	// Do any additional setup after loading the view.
+    if (!isCameraShown) {
+        isCameraShown = true;
+        DLCImagePickerController *picker = [[DLCImagePickerController alloc] init];
+        picker.delegate = self;
+        [self presentViewController:picker animated:NO completion:nil];
+    }
+}
 
 - (void)viewDidLoad
 {

@@ -8,12 +8,13 @@
 
 #import "DLCImagePickerController.h"
 #import "GrayscaleContrastFilter.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 #define kStaticBlurSize 2.0f
 
 // This category (i.e. class extension) is a workaround to get the
 // Image PickerController to appear in landscape mode.
-/*@interface UIImagePickerController(Nonrotating)
+@interface UIImagePickerController(Nonrotating)
 - (BOOL)shouldAutorotate;
 @end
 
@@ -23,7 +24,7 @@
     return NO;
 }
 
-@end*/
+@end
 
 @implementation DLCImagePickerController {
     BOOL isStatic;
@@ -92,9 +93,14 @@
     [self loadFilters];
     
     //we need a crop filter for the live video
-    cropFilter = [[GPUImageCropFilter alloc] initWithCropRegion:CGRectMake(0.0f, 0.0f, 1.0f, 0.75f)];
+    //cropFilter = [[GPUImageCropFilter alloc] initWithCropRegion:CGRectMake(0.0f, 0.0f, 1.0f, 1.0f)];
     
     filter = [[GPUImageFilter alloc] init];
+    
+    [self.photoCaptureButton setTitle:@"Done" forState:UIControlStateNormal];
+    [self.photoCaptureButton setImage:nil forState:UIControlStateNormal];
+    [self.photoCaptureButton setEnabled:NO];
+    
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [self setUpCamera];
@@ -142,7 +148,7 @@
 
 -(void) setUpCamera {
     
-    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
+    /*if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
         // Has camera
         
         stillCamera = [[GPUImageStillCamera alloc] initWithSessionPreset:AVCaptureSessionPresetPhoto cameraPosition:AVCaptureDevicePositionBack];
@@ -158,11 +164,11 @@
         });
     } else {
         // No camera
-        NSLog(@"No camera");
+        NSLog(@"No camera");*/
         runOnMainQueueWithoutDeadlocking(^{
             [self prepareFilter];
         });
-    }
+    //}
    
 }
 
@@ -219,9 +225,9 @@
 }
 
 -(void) prepareFilter {    
-    if (![UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
+    //if (![UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
         isStatic = YES;
-    }
+    //}
     
     if (!isStatic) {
         [self prepareLiveFilter];
@@ -232,8 +238,9 @@
 
 -(void) prepareLiveFilter {
     
-    [stillCamera addTarget:cropFilter];
-    [cropFilter addTarget:filter];
+    //[stillCamera addTarget:cropFilter];
+    [stillCamera addTarget:filter];
+    //[cropFilter addTarget:filter];
     //blur is terminal filter
     if (hasBlur) {
         [filter addTarget:blurFilter];
@@ -291,7 +298,7 @@
 -(void) removeAllTargets {
     [stillCamera removeAllTargets];
     [staticPicture removeAllTargets];
-    [cropFilter removeAllTargets];
+    //[cropFilter removeAllTargets];
     
     //regular filter
     [filter removeAllTargets];
@@ -311,7 +318,7 @@
     UIImagePickerController* imagePickerController = [[UIImagePickerController alloc] init];
     imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     imagePickerController.delegate = self;
-    imagePickerController.allowsEditing = YES;
+    //imagePickerController.allowsEditing = YES; // Move and crop
     [self presentViewController:imagePickerController animated:YES completion:NULL];
 }
 
@@ -375,7 +382,7 @@
 
 
 -(void)captureImage {
-    UIImage *img = [cropFilter imageFromCurrentlyProcessedOutput];
+    UIImage *img = [filter imageFromCurrentlyProcessedOutput];
     [stillCamera.inputCamera unlockForConfiguration];
     [stillCamera stopCameraCapture];
     [self removeAllTargets];
@@ -396,8 +403,30 @@
 }
 
 -(IBAction) takePhoto:(id)sender{
+    return;
     [self.photoCaptureButton setEnabled:NO];
-    
+    /*[stillCamera capturePhotoAsJPEGProcessedUpToFilter:filter withCompletionHandler:^(NSData *processedJPEG, NSError *error){
+        
+        // Save to assets library
+        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+        //        report_memory(@"After asset library creation");
+        
+        [library writeImageDataToSavedPhotosAlbum:processedJPEG metadata:stillCamera.currentCaptureMetadata completionBlock:^(NSURL *assetURL, NSError *error2)
+         {
+             //             report_memory(@"After writing to library");
+             if (error2) {
+                 NSLog(@"ERROR: the image failed to be written");
+             }
+             else {
+                 NSLog(@"PHOTO SAVED - assetURL: %@", assetURL);
+             }
+			 
+             runOnMainQueueWithoutDeadlocking(^{
+              //                 report_memory(@"Operation completed");
+              [photoCaptureButton setEnabled:YES];
+              });
+         }];
+    }];*/
     if (!isStatic) {
         isStatic = YES;
         
@@ -652,7 +681,7 @@
 -(void) dealloc {
     [self removeAllTargets];
     stillCamera = nil;
-    cropFilter = nil;
+    //cropFilter = nil;
     filter = nil;
     blurFilter = nil;
     staticPicture = nil;
@@ -697,7 +726,7 @@
     if (isStatic) {
         // TODO: fix this hack
         [self dismissViewControllerAnimated:NO completion:nil];
-        [self.delegate imagePickerControllerDidCancel:self];
+        //[self.delegate imagePickerControllerDidCancel:self];
     } else {
         [self dismissViewControllerAnimated:YES completion:nil];
         [self retakePhoto:nil];
@@ -706,13 +735,13 @@
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
 
-- (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait;
-}
-
-//- (BOOL)shouldAutorotate {
-//    return NO;
+//- (NSUInteger)supportedInterfaceOrientations {
+//    return UIInterfaceOrientationMaskPortrait;
 //}
+
+- (BOOL)shouldAutorotate {
+    return NO;
+}
 
 #endif
 

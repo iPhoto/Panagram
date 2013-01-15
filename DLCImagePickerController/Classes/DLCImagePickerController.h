@@ -22,7 +22,7 @@
     GPUImageStillCamera *stillCamera;
     GPUImageOutput<GPUImageInput> *filter;
     GPUImageOutput<GPUImageInput> *blurFilter;
-    GPUImageCropFilter *cropFilter;
+    //GPUImageCropFilter *cropFilter;
     GPUImagePicture *staticPicture;
     UIImageOrientation staticPictureOriginalOrientation;
     

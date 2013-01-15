@@ -100,7 +100,7 @@ NSString *const kGPUImageYUVVideoRangeConversionFragmentShaderString = SHADER_ST
     _runBenchmark = NO;
     capturePaused = NO;
     outputRotation = kGPUImageNoRotation;
-    captureAsYUV = YES;
+    captureAsYUV = NO;
 
     runSynchronouslyOnVideoProcessingQueue(^{
         

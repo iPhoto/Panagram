@@ -7,6 +7,7 @@
 //
 
 #import "MyCollectionViewController.h"
+#import "ZoomView.h"
 
 @interface MyCollectionViewController ()
 
@@ -28,7 +29,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     _images = [@[@"http://cdn3.pcadvisor.co.uk/cmsdata/features/3401121/iPhone-5-panorama-London-Bridge.png",
-                  @"http://upload.wikimedia.org/wikipedia/commons/5/5f/Chicago_Downtown_Panorama.jpg"] mutableCopy];
+                  @"http://upload.wikimedia.org/wikipedia/commons/5/5f/Chicago_Downtown_Panorama.jpg",
+               @"http://photorepairshop.com/Images/Panoramic_Photo3.jpg", @"http://www.ronsaari.com/stockImages/nyc/BrooklynBridgePost911Panoramic1.jpg"] mutableCopy];
+    _downloadedImages = [[NSMutableArray alloc] init];
+    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(zoomTap:)];
+    [tap setNumberOfTouchesRequired:1];
+    [tap setNumberOfTapsRequired:1];
+    [tap setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,17 +61,35 @@
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MyCollectionViewCell *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MyCell" forIndexPath:indexPath];
-    myCell.imageView.image = [UIImage imageNamed:@"Placeholder.png"];
     int row = [indexPath row];
-    dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(concurrentQueue, ^{
-        NSURL * imageURL = [NSURL URLWithString:_images[row]];
-        NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
-        UIImage * image = [UIImage imageWithData:imageData];
-        myCell.imageView.image = image;
-    });
+    if ([_downloadedImages count] <= row || !_downloadedImages[row]) {
+        myCell.imageView.image = [UIImage imageNamed:@"Placeholder.png"];
+        dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+        dispatch_async(concurrentQueue, ^{
+            NSURL * imageURL = [NSURL URLWithString:_images[row]];
+            NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+            UIImage * image = [UIImage imageWithData:imageData];
+            myCell.imageView.image = image;
+            [_downloadedImages addObject:image];
+        });
+    } else {
+        myCell.imageView.image = _downloadedImages[row];
+    }
+    [myCell.imageView setUserInteractionEnabled:YES];
+    [myCell.imageView addGestureRecognizer:tap];
+    [myCell.imageView setTag:indexPath.row];
 
     return myCell;
+}
+
+- (void)zoomTap:(UIGestureRecognizer *) sender
+{
+    ZoomView *zoom = [[ZoomView alloc] initWithNibName:@"ZoomView" bundle:nil];
+    int tag = ((UIImageView *) sender.view).tag;
+    UIImage *fs = [_downloadedImages objectAtIndex:tag];
+    zoom.image = fs;
+    zoom.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+	[self presentViewController:zoom animated:YES completion:NULL];
 }
 
 #pragma mark -
