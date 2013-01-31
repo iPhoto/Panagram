@@ -259,6 +259,8 @@
     if (!staticPicture) {
         // TODO: fix this hack
         [self performSelector:@selector(switchToLibrary:) withObject:nil afterDelay:0.5];
+    } else {
+        [self.photoCaptureButton setEnabled:YES];
     }
     
     [staticPicture addTarget:filter];
@@ -403,8 +405,25 @@
 }
 
 -(IBAction) takePhoto:(id)sender{
-    return;
     [self.photoCaptureButton setEnabled:NO];
+    
+    // initialize our Alert View window without any buttons
+    baseAlert=[[UIAlertView alloc]initWithTitle:@"Saving Image...." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
+    
+    // Display our Progress Activity view
+    [baseAlert show];
+    
+    // create and add the UIActivity Indicator
+    UIActivityIndicatorView *activityIndicator=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    activityIndicator.center=CGPointMake(baseAlert.bounds.size.width / 2.0f,baseAlert.bounds.size.height-40.0f);
+    
+    // initialize to tell our activity to start animating.
+    [activityIndicator startAnimating];
+    [baseAlert addSubview:activityIndicator];
+    
+    // automatically close our window after 3 seconds has passed.
+    //[self performSelector:@selector(showProgressDismiss) withObject:nil afterDelay:3.0f];
+    
     /*[stillCamera capturePhotoAsJPEGProcessedUpToFilter:filter withCompletionHandler:^(NSData *processedJPEG, NSError *error){
         
         // Save to assets library
@@ -435,7 +454,7 @@
         [self.flashToggleButton setEnabled:NO];
         [self prepareForCapture];
         
-    } else {
+    } else if (staticPicture != nil){
         
         GPUImageOutput<GPUImageInput> *processUpTo;
         
@@ -449,10 +468,28 @@
         
         UIImage *currentFilteredVideoFrame = [processUpTo imageFromCurrentlyProcessedOutputWithOrientation:staticPictureOriginalOrientation];
 
-        NSDictionary *info = [[NSDictionary alloc] initWithObjectsAndKeys:
-                              UIImageJPEGRepresentation(currentFilteredVideoFrame, self.outputJPEGQuality), @"data", nil];
-        [self.delegate imagePickerController:self didFinishPickingMediaWithInfo:info];
+        //NSDictionary *info = [[NSDictionary alloc] initWithObjectsAndKeys:
+        //                      UIImageJPEGRepresentation(currentFilteredVideoFrame, self.outputJPEGQuality), @"data", nil];
+        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+        [library writeImageDataToSavedPhotosAlbum:UIImageJPEGRepresentation(currentFilteredVideoFrame, self.outputJPEGQuality) metadata:nil completionBlock:^(NSURL *assetURL, NSError *error)
+         {
+             if (error) {
+                 NSLog(@"ERROR: the image failed to be written");
+             }
+             else {
+                 NSLog(@"PHOTO SAVED - assetURL: %@", assetURL);
+             }
+         }];
+        //[self.delegate imagePickerController:self didFinishPickingMediaWithInfo:info];
     }
+    [self performSelector:@selector(showProgressDismiss) withObject:nil];
+}
+
+// Delegate to dismiss our Activity indicator after the number of seconds has passed.
+- (void) showProgressDismiss
+{
+    //[baseAlert setTitle:@"Done"];
+    [baseAlert dismissWithClickedButtonIndex:0 animated:YES];
 }
 
 -(IBAction) retakePhoto:(UIButton *)button {
@@ -699,6 +736,21 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
+    
+    // initialize our Alert View window without any buttons
+    baseAlert=[[UIAlertView alloc]initWithTitle:@"Loading Image...." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
+    
+    // Display our Progress Activity view
+    [baseAlert show];
+    
+    // create and add the UIActivity Indicator
+    UIActivityIndicatorView *activityIndicator=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    activityIndicator.center=CGPointMake(baseAlert.bounds.size.width / 2.0f,baseAlert.bounds.size.height-40.0f);
+    
+    // initialize to tell our activity to start animating.
+    [activityIndicator startAnimating];
+    [baseAlert addSubview:activityIndicator];
+
     UIImage* outputImage = [info objectForKey:UIImagePickerControllerEditedImage];
     if (outputImage == nil) {
         outputImage = [info objectForKey:UIImagePickerControllerOriginalImage];
@@ -720,6 +772,7 @@
         }
 
     }
+    [self performSelector:@selector(showProgressDismiss) withObject:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -738,10 +791,6 @@
 //- (NSUInteger)supportedInterfaceOrientations {
 //    return UIInterfaceOrientationMaskPortrait;
 //}
-
-- (BOOL)shouldAutorotate {
-    return NO;
-}
 
 #endif
 

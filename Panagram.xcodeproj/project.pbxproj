@@ -79,10 +79,7 @@
 		B21DB8BA1688250900B5AF9C /* photo_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = B21DB87F1688250900B5AF9C /* photo_bar.png */; };
 		B21DB8BB1688250900B5AF9C /* photo_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B21DB8801688250900B5AF9C /* photo_bar@2x.png */; };
 		B22E413916A1195A0038F267 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B22E413416A119460038F267 /* libGPUImage.a */; };
-		B22E438316A124F20038F267 /* GrayscaleContrastFilter.h in Resources */ = {isa = PBXBuildFile; fileRef = B2C631D31688398900DA0562 /* GrayscaleContrastFilter.h */; };
-		B22E438416A124F20038F267 /* GrayscaleContrastFilter.m in Resources */ = {isa = PBXBuildFile; fileRef = B2C631D41688398900DA0562 /* GrayscaleContrastFilter.m */; };
 		B22E438516A1256E0038F267 /* GrayscaleContrastFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C631D41688398900DA0562 /* GrayscaleContrastFilter.m */; };
-		B22E438616A128C40038F267 /* GPUImageFilter.m in Resources */ = {isa = PBXBuildFile; fileRef = B22E419016A11F750038F267 /* GPUImageFilter.m */; };
 		B238897F16976E0B00A0FF86 /* ZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = B238897E16976E0B00A0FF86 /* ZoomView.m */; };
 		B23889811697793B00A0FF86 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B23889801697793B00A0FF86 /* Placeholder.png */; };
 		B24C30811653423F00E490E8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B24C30801653423F00E490E8 /* CoreMedia.framework */; };
@@ -1214,14 +1211,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B22E438616A128C40038F267 /* GPUImageFilter.m in Resources */,
 				B2BADDDF163F5692002C6477 /* Default@2x.png in Resources */,
-				B22E438416A124F20038F267 /* GrayscaleContrastFilter.m in Resources */,
 				B2BADDE1163F5692002C6477 /* Default-568h@2x.png in Resources */,
 				B2BADDDD163F5692002C6477 /* Default.png in Resources */,
 				B2BADDE4163F5692002C6477 /* MainStoryboard_iPhone.storyboard in Resources */,
 				B2BADDD5163F5692002C6477 /* InfoPlist.strings in Resources */,
-				B22E438316A124F20038F267 /* GrayscaleContrastFilter.h in Resources */,
 				B2BADDE7163F5692002C6477 /* MainStoryboard_iPad.storyboard in Resources */,
 				B2BADDEC163F5692002C6477 /* first.png in Resources */,
 				B2BADDEE163F5692002C6477 /* first@2x.png in Resources */,

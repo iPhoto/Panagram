@@ -60,24 +60,26 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     MyCollectionViewCell *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MyCell" forIndexPath:indexPath];
     int row = [indexPath row];
     if ([_downloadedImages count] <= row || !_downloadedImages[row]) {
         myCell.imageView.image = [UIImage imageNamed:@"Placeholder.png"];
+        [_downloadedImages addObject:[UIImage imageNamed:@"Placeholder.png"]];
         dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
         dispatch_async(concurrentQueue, ^{
             NSURL * imageURL = [NSURL URLWithString:_images[row]];
             NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
             UIImage * image = [UIImage imageWithData:imageData];
             myCell.imageView.image = image;
-            [_downloadedImages addObject:image];
+            [_downloadedImages setObject:image atIndexedSubscript:row];
         });
     } else {
         myCell.imageView.image = _downloadedImages[row];
     }
-    [myCell.imageView setUserInteractionEnabled:YES];
+    //[myCell.imageView setUserInteractionEnabled:YES];
     [myCell.imageView addGestureRecognizer:tap];
-    [myCell.imageView setTag:indexPath.row];
+    //[myCell.imageView setTag:indexPath.row];
 
     return myCell;
 }
@@ -85,9 +87,9 @@
 - (void)zoomTap:(UIGestureRecognizer *) sender
 {
     ZoomView *zoom = [[ZoomView alloc] initWithNibName:@"ZoomView" bundle:nil];
-    int tag = ((UIImageView *) sender.view).tag;
-    UIImage *fs = [_downloadedImages objectAtIndex:tag];
-    zoom.image = fs;
+    //int tag = ((UIImageView *) sender.view).tag;
+    //UIImage *fs = [_downloadedImages objectAtIndex:tag];
+    zoom.image = ((UIImageView *) sender.view).image;
     zoom.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 	[self presentViewController:zoom animated:YES completion:NULL];
 }
