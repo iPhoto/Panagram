@@ -43,17 +43,17 @@
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     [UIView animateWithDuration:1.5 animations:^
      {
-         [logoView setFrame:CGRectMake(-100, self.logoView.frame.origin.y, 100, 100)];
+         [logoView setFrame:CGRectMake(-130, self.logoView.frame.origin.y, 100, 100)];
          self.logoView.hidden = NO;
      }completion:^(BOOL finished)
      {
          
          [UIView animateWithDuration:1.0 animations:^{
              [logoView setFrame:CGRectMake(-100, self.logoView.frame.origin.y, 100, 100)];
-             [inputView setFrame:CGRectMake(150, self.inputView.frame.origin.y, 121, 150)];
+             [inputView setFrame:CGRectMake(224-30, self.inputView.frame.origin.y, 120, 150)];
          } completion:^(BOOL finished){
              [UIView animateWithDuration:0.5 animations:^{
-                 [inputView setFrame:CGRectMake(180, self.inputView.frame.origin.y, 121, 150)];
+                 [inputView setFrame:CGRectMake(224, self.inputView.frame.origin.y, 120, 150)];
                  logoView.hidden = YES;
              }];
          }];

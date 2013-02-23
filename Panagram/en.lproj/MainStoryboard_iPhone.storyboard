@@ -474,7 +474,7 @@
             <objects>
                 <tableViewController id="7Qi-06-x2L" customClass="ProfileViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="g5X-MM-daN">
-                        <rect key="frame" x="0.0" y="64" width="480" height="207"/>
+                        <rect key="frame" x="0.0" y="64" width="568" height="207"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -482,10 +482,10 @@
                             <tableViewSection id="v5I-2a-yMZ">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="120" id="C7K-7k-3r3">
-                                        <rect key="frame" x="0.0" y="0.0" width="480" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="480" height="119"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="568" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCi-IH-w7v">
@@ -617,7 +617,9 @@
                                             <constraint firstItem="q7s-q2-9yw" firstAttribute="trailing" secondItem="UMH-Ef-9lv" secondAttribute="trailing" type="default" id="6JC-qw-TI1"/>
                                             <constraint firstItem="biz-D3-QYy" firstAttribute="trailing" secondItem="gdY-gx-qMF" secondAttribute="trailing" type="default" id="90B-ia-1ar"/>
                                             <constraint firstAttribute="bottom" secondItem="Sbl-R0-M3f" secondAttribute="bottom" constant="10" id="9sG-Xk-Kkd"/>
+                                            <constraint firstAttribute="trailing" secondItem="Sbl-R0-M3f" secondAttribute="trailing" constant="458" id="AOE-h6-oD2"/>
                                             <constraint firstItem="QsZ-fs-czH" firstAttribute="leading" secondItem="hdv-TP-gel" secondAttribute="leading" type="default" id="CXx-Dn-7pG"/>
+                                            <constraint firstAttribute="trailing" secondItem="RF4-Qf-zVY" secondAttribute="trailing" constant="182" id="D3O-In-aaG"/>
                                             <constraint firstItem="HUR-P7-oUM" firstAttribute="bottom" secondItem="h4v-l6-5Yo" secondAttribute="bottom" type="default" id="EIl-Wv-c6Z"/>
                                             <constraint firstItem="OCi-IH-w7v" firstAttribute="top" secondItem="C7K-7k-3r3" secondAttribute="top" constant="15" id="EWg-UZ-wny"/>
                                             <constraint firstItem="Sbl-R0-M3f" firstAttribute="leading" secondItem="C7K-7k-3r3" secondAttribute="leading" constant="20" type="default" id="GFB-Og-mfu"/>
@@ -626,7 +628,6 @@
                                             <constraint firstItem="OCi-IH-w7v" firstAttribute="leading" secondItem="C7K-7k-3r3" secondAttribute="leading" constant="119" id="KDf-3o-CNV"/>
                                             <constraint firstItem="biz-D3-QYy" firstAttribute="top" secondItem="C7K-7k-3r3" secondAttribute="top" constant="25" id="LAn-1w-YYG"/>
                                             <constraint firstItem="QsZ-fs-czH" firstAttribute="trailing" secondItem="hdv-TP-gel" secondAttribute="trailing" type="default" id="MRY-j8-nGn"/>
-                                            <constraint firstAttribute="trailing" secondItem="RF4-Qf-zVY" secondAttribute="trailing" constant="94" id="Mzq-NY-k9H"/>
                                             <constraint firstItem="HUR-P7-oUM" firstAttribute="top" secondItem="h4v-l6-5Yo" secondAttribute="top" type="default" id="RAA-JE-7de"/>
                                             <constraint firstItem="QsZ-fs-czH" firstAttribute="leading" secondItem="C7K-7k-3r3" secondAttribute="leading" constant="128" id="Rl2-5S-f5a"/>
                                             <constraint firstItem="UMH-Ef-9lv" firstAttribute="baseline" secondItem="QHd-jp-UKM" secondAttribute="baseline" type="default" id="SlQ-PO-lYS"/>
@@ -635,14 +636,12 @@
                                             <constraint firstItem="QsZ-fs-czH" firstAttribute="centerY" secondItem="h4v-l6-5Yo" secondAttribute="centerY" type="default" id="VrU-S6-ykw"/>
                                             <constraint firstItem="HUR-P7-oUM" firstAttribute="leading" secondItem="HOw-c1-zmy" secondAttribute="leading" type="default" id="WJx-HB-qyj"/>
                                             <constraint firstItem="gdY-gx-qMF" firstAttribute="baseline" secondItem="QsZ-fs-czH" secondAttribute="baseline" type="default" id="ZAv-il-dwP"/>
-                                            <constraint firstAttribute="trailing" secondItem="Sbl-R0-M3f" secondAttribute="trailing" constant="370" id="efG-tB-Rfd"/>
                                             <constraint firstItem="UMH-Ef-9lv" firstAttribute="top" secondItem="biz-D3-QYy" secondAttribute="top" type="default" id="fmz-gP-9YD"/>
                                             <constraint firstItem="HOw-c1-zmy" firstAttribute="bottom" secondItem="OCi-IH-w7v" secondAttribute="bottom" type="default" id="g6w-Z4-1FF"/>
                                             <constraint firstItem="QHd-jp-UKM" firstAttribute="leading" secondItem="RF4-Qf-zVY" secondAttribute="leading" type="default" id="gRz-0I-l2d"/>
                                             <constraint firstItem="HOw-c1-zmy" firstAttribute="top" secondItem="OCi-IH-w7v" secondAttribute="top" type="default" id="h18-7U-cMA"/>
                                             <constraint firstItem="RF4-Qf-zVY" firstAttribute="top" secondItem="QsZ-fs-czH" secondAttribute="top" type="default" id="h9A-A0-Kjd"/>
                                             <constraint firstItem="Sbl-R0-M3f" firstAttribute="top" secondItem="C7K-7k-3r3" secondAttribute="top" constant="20" type="default" id="hZs-b0-mwP"/>
-                                            <constraint firstAttribute="trailing" secondItem="UMH-Ef-9lv" secondAttribute="trailing" constant="16" id="iKv-gV-21J"/>
                                             <constraint firstItem="q7s-q2-9yw" firstAttribute="leading" secondItem="UMH-Ef-9lv" secondAttribute="leading" type="default" id="itK-VV-1pH"/>
                                             <constraint firstItem="hdv-TP-gel" firstAttribute="centerY" secondItem="OCi-IH-w7v" secondAttribute="centerY" type="default" id="j9c-UC-LM7"/>
                                             <constraint firstItem="HUR-P7-oUM" firstAttribute="trailing" secondItem="HOw-c1-zmy" secondAttribute="trailing" type="default" id="kfp-UL-fd1"/>
@@ -650,14 +649,15 @@
                                             <constraint firstItem="UMH-Ef-9lv" firstAttribute="bottom" secondItem="biz-D3-QYy" secondAttribute="bottom" type="default" id="nNe-FR-ohn"/>
                                             <constraint firstItem="biz-D3-QYy" firstAttribute="leading" secondItem="gdY-gx-qMF" secondAttribute="leading" type="default" id="uZt-27-dL8"/>
                                             <constraint firstItem="biz-D3-QYy" firstAttribute="leading" secondItem="C7K-7k-3r3" secondAttribute="leading" constant="190" id="vnS-Vy-zgc"/>
+                                            <constraint firstAttribute="trailing" secondItem="UMH-Ef-9lv" secondAttribute="trailing" constant="104" id="wpi-Xh-dwS"/>
                                             <constraint firstAttribute="bottom" secondItem="gdY-gx-qMF" secondAttribute="bottom" constant="13" id="yK0-yR-iDB"/>
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ZyO-bI-yU0">
-                                        <rect key="frame" x="0.0" y="120" width="480" height="44"/>
+                                        <rect key="frame" x="0.0" y="120" width="568" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="480" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="568" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="facebook" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LdU-8D-V7H">
@@ -693,10 +693,10 @@
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="yiL-PD-G1b">
-                                        <rect key="frame" x="0.0" y="164" width="480" height="44"/>
+                                        <rect key="frame" x="0.0" y="164" width="568" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="480" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="568" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mud-er-TgB">
@@ -715,10 +715,10 @@
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KQ3-LQ-oMr">
-                                        <rect key="frame" x="0.0" y="208" width="480" height="44"/>
+                                        <rect key="frame" x="0.0" y="208" width="568" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="480" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="568" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bV3-5j-tvN">
@@ -737,10 +737,10 @@
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cWg-hg-qJH">
-                                        <rect key="frame" x="0.0" y="252" width="480" height="44"/>
+                                        <rect key="frame" x="0.0" y="252" width="568" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="480" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="568" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MOK-jd-67o">
@@ -781,7 +781,7 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="birthDate" destination="q7s-q2-9yw" id="gx9-YU-WNc"/>
                         <outlet property="birthDateBG" destination="HUR-P7-oUM" id="fqr-ec-JE9"/>
@@ -870,6 +870,87 @@
         <image name="first.png" width="30" height="30"/>
         <image name="second" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="CameraAppViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CameraAppViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addFilter:"/>
+                <relationship kind="action" name="getPhoto:"/>
+                <relationship kind="outlet" name="choosePhotoBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="filters" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="takePhotoBtn" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="FBProfilePictureView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FBProfilePictureView.h"/>
+        </class>
+        <class className="FirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="refresh" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="MyCollectionViewCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyCollectionViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="MyCollectionViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyCollectionViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ProfileViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="LogOutClicked:"/>
+                <relationship kind="outlet" name="birthDate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="birthDateBG" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="fackbook" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="firstName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="firstNameBG" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="gender" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="genderBG" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="lastName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lastNameBG" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="userImage" candidateClass="FBProfilePictureView"/>
+            </relationships>
+        </class>
+        <class className="SearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="theSearchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="theTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="ZoomView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZoomView.h"/>
+            <relationships>
+                <relationship kind="action" name="exit:"/>
+                <relationship kind="outlet" name="exit" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
