@@ -13,7 +13,7 @@
 #import "BSKeyboardControls.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
-@interface ProfileViewController : UITableViewController<IASKSettingsDelegate,BSKeyboardControlsDelegate,UITextFieldDelegate,UITextViewDelegate,UIActionSheetDelegate>
+@interface ProfileViewController : UITableViewController<BSKeyboardControlsDelegate,UITextFieldDelegate,UITextViewDelegate,UIActionSheetDelegate>
 //-(IBAction)alert;
 
 //Variable

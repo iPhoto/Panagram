@@ -33,7 +33,7 @@
     
     NSArray *fields = @[self.userName,self.password];
     [self setKeyboardControls:[[BSKeyboardControls alloc] initWithFields:fields]];
-    [self.keyboardControls setDelegate:self];
+    [self.keyboardControls setDelegate:(id)self];
 }
 -(void)viewDidAppear:(BOOL)animated
 {
