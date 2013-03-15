@@ -52,7 +52,7 @@
 
 - (id)initWithFirstStageFragmentShaderFromString:(NSString *)firstStageFragmentShaderString secondStageFragmentShaderFromString:(NSString *)secondStageFragmentShaderString;
 {
-    if (!(self = [self initWithFirstStageVertexShaderFromString:kGPUImageVertexShaderString firstStageFragmentShaderFromString:firstStageFragmentShaderString secondStageVertexShaderFromString:kGPUImageVertexShaderString secondStageFragmentShaderFromString:firstStageFragmentShaderString]))
+    if (!(self = [self initWithFirstStageVertexShaderFromString:kGPUImageVertexShaderString firstStageFragmentShaderFromString:firstStageFragmentShaderString secondStageVertexShaderFromString:kGPUImageVertexShaderString secondStageFragmentShaderFromString:secondStageFragmentShaderString]))
     {
 		return nil;
     }
@@ -202,7 +202,14 @@
         {
             [self initializeSecondOutputTextureIfNeeded];
             glBindTexture(GL_TEXTURE_2D, secondFilterOutputTexture);
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (int)currentFBOSize.width, (int)currentFBOSize.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
+//            if ([self providesMonochromeOutput] && [GPUImageOpenGLESContext deviceSupportsRedTextures])
+//            {
+//                glTexImage2D(GL_TEXTURE_2D, 0, GL_RG_EXT, (int)currentFBOSize.width, (int)currentFBOSize.height, 0, GL_RG_EXT, GL_UNSIGNED_BYTE, 0);
+//            }
+//            else
+//            {
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (int)currentFBOSize.width, (int)currentFBOSize.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
+//            }
             glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, secondFilterOutputTexture, 0);
             
             [self notifyTargetsAboutNewOutputTexture];
@@ -264,9 +271,10 @@
 
 - (void)setFilterFBO;
 {
+    CGSize currentFBOSize = [self sizeOfFBO];
+
     if (!filterFramebuffer)
     {
-        CGSize currentFBOSize = [self sizeOfFBO];
         if ([GPUImageOpenGLESContext supportsFastTextureUpload] && preparedToCaptureImage)
         {
             preparedToCaptureImage = NO;
@@ -277,12 +285,11 @@
         {
             [super createFilterFBOofSize:currentFBOSize];
         }
-        [super setupFilterForSize:currentFBOSize];
+        [self setupFilterForSize:currentFBOSize];
     }
     
     glBindFramebuffer(GL_FRAMEBUFFER, filterFramebuffer);
     
-    CGSize currentFBOSize = [self sizeOfFBO];
     glViewport(0, 0, (int)currentFBOSize.width, (int)currentFBOSize.height);
 }
 
@@ -298,9 +305,6 @@
     glBindFramebuffer(GL_FRAMEBUFFER, secondFilterFramebuffer);
     CGSize currentFBOSize = [self sizeOfFBO];
     glViewport(0, 0, (int)currentFBOSize.width, (int)currentFBOSize.height);
-
-//    CGSize currentFBOSize = [self sizeOfFBO];
-//    glViewport(0, 0, (int)currentFBOSize.width, (int)currentFBOSize.height);
 }
 
 - (void)setOutputFBO;
@@ -318,8 +322,12 @@
         return;
     }
     
-    // Run the first stage of the two-pass filter
-    [super renderToTextureWithVertices:vertices textureCoordinates:textureCoordinates sourceTexture:sourceTexture];
+    // This assumes that any two-pass filter that says it desires monochrome input is using the first pass for a luminance conversion, which can be dropped
+    if (!currentlyReceivingMonochromeInput)
+    {
+        // Run the first stage of the two-pass filter
+        [super renderToTextureWithVertices:vertices textureCoordinates:textureCoordinates sourceTexture:sourceTexture];
+    }
     
     // Run the second stage of the two-pass filter
     [self setSecondFilterFBO];
@@ -330,13 +338,22 @@
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     
-	glActiveTexture(GL_TEXTURE3);
-	glBindTexture(GL_TEXTURE_2D, outputTexture);
+    if (!currentlyReceivingMonochromeInput)
+    {
+        glActiveTexture(GL_TEXTURE3);
+        glBindTexture(GL_TEXTURE_2D, outputTexture);
+        glVertexAttribPointer(secondFilterTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, [[self class] textureCoordinatesForRotation:kGPUImageNoRotation]);
+    }
+    else
+    {
+        glActiveTexture(GL_TEXTURE3);
+        glBindTexture(GL_TEXTURE_2D, sourceTexture);
+        glVertexAttribPointer(secondFilterTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, textureCoordinates);
+    }
     
-	glUniform1i(secondFilterInputTextureUniform, 3);	
+	glUniform1i(secondFilterInputTextureUniform, 3);
     
     glVertexAttribPointer(secondFilterPositionAttribute, 2, GL_FLOAT, 0, 0, vertices);
-	glVertexAttribPointer(secondFilterTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, [[self class] textureCoordinatesForRotation:kGPUImageNoRotation]);
 
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
@@ -388,6 +405,7 @@
 
 - (void)setAndExecuteUniformStateCallbackAtIndex:(GLint)uniform forProgram:(GLProgram *)shaderProgram toBlock:(dispatch_block_t)uniformStateBlock;
 {
+// TODO: Deal with the fact that two-pass filters may have the same shader program identifier
     if (shaderProgram == filterProgram)
     {
         [uniformStateRestorationBlocks setObject:[uniformStateBlock copy] forKey:[NSNumber numberWithInt:uniform]];
