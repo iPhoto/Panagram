@@ -19,13 +19,4 @@
 @synthesize rating;
 @synthesize timestamp;
 
-- (NSString *) getStringTimestamp {
-    NSTimeInterval _interval=[timestamp doubleValue];
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:_interval];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MM/dd/yyyy hh:mm a"];
-
-    return [formatter stringFromDate:date];
-}
-
 @end

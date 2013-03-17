@@ -31,7 +31,7 @@
  */
 - (void)createConnection: (NSString *) username : (NSString *)password
 {
-    NSString* link = @"http://192.168.1.139:8888/include_php/registerData.php";
+    NSString* link = @"http://192.168.0.135:8888/include_php/registerData.php";
     NSMutableURLRequest *theRequest=[NSMutableURLRequest
                                      requestWithURL:[NSURL URLWithString: link]
                                      cachePolicy:NSURLRequestUseProtocolCachePolicy

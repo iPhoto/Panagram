@@ -99,8 +99,10 @@
 		B238897F16976E0B00A0FF86 /* ZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = B238897E16976E0B00A0FF86 /* ZoomView.m */; };
 		B23889811697793B00A0FF86 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B23889801697793B00A0FF86 /* Placeholder.png */; };
 		B26C2027164B948C00F93DAE /* star.gif in Resources */ = {isa = PBXBuildFile; fileRef = B26C2026164B948C00F93DAE /* star.gif */; };
+		B29E231116F465E900AF3F3A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29E231016F465E900AF3F3A /* Foundation.framework */; };
+		B29E231316F466A600AF3F3A /* LoginConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E230716F4590900AF3F3A /* LoginConnection.m */; };
+		B29E231516F466A600AF3F3A /* RegisterConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E230916F4590900AF3F3A /* RegisterConnection.m */; };
 		B2BADDCB163F5692002C6477 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BADDCA163F5692002C6477 /* UIKit.framework */; };
-		B2BADDCD163F5692002C6477 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BADDCC163F5692002C6477 /* Foundation.framework */; };
 		B2BADDCF163F5692002C6477 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BADDCE163F5692002C6477 /* CoreGraphics.framework */; };
 		B2BADDD5163F5692002C6477 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2BADDD3163F5692002C6477 /* InfoPlist.strings */; };
 		B2BADDD7163F5692002C6477 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BADDD6163F5692002C6477 /* main.m */; };
@@ -121,9 +123,7 @@
 		B2C753D716958C10001C78BB /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C753D616958C10001C78BB /* ImageDownloader.m */; };
 		B2CE9E02168C5FFC00586B15 /* ZoomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2CE9E01168C5FFC00586B15 /* ZoomView.xib */; };
 		B2CFC9C516CD9DAC007AF917 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC9C416CD9DAC007AF917 /* ProfileViewController.m */; };
-		B2D5098616A0C94A0067B552 /* FeedList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2D5098316A0C94A0067B552 /* FeedList.plist */; };
 		B2D5098716A0C94A0067B552 /* FeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D5098516A0C94A0067B552 /* FeedParser.m */; };
-		B2DBE4BE16F31DD200491FAA /* libsbjson-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B231B59416F31D39003C1E8B /* libsbjson-ios.a */; };
 		B2DBE4C016F31E9100491FAA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2DBE4BF16F31E9100491FAA /* AVFoundation.framework */; };
 		B2DBE4C216F31ECB00491FAA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2DBE4C116F31ECB00491FAA /* QuartzCore.framework */; };
 		B2DBE4C416F31ED500491FAA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2DBE4C316F31ED500491FAA /* OpenGLES.framework */; };
@@ -164,41 +164,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = BCF1A33314DDB1EC00852800;
 			remoteInfo = GPUImage;
-		};
-		B231B58F16F31D39003C1E8B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B231B58616F31D39003C1E8B /* SBJson.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BC12323D1391D5CC00131607;
-			remoteInfo = SBJson;
-		};
-		B231B59116F31D39003C1E8B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B231B58616F31D39003C1E8B /* SBJson.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BC1232521391D5CC00131607;
-			remoteInfo = SBJsonTests;
-		};
-		B231B59316F31D39003C1E8B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B231B58616F31D39003C1E8B /* SBJson.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCC2626913920FC7003D9994;
-			remoteInfo = "sbjson-ios";
-		};
-		B231B59516F31D39003C1E8B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B231B58616F31D39003C1E8B /* SBJson.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCC2627313920FC7003D9994;
-			remoteInfo = "sbjson-iosTests";
-		};
-		B2DBE4B616F31DB500491FAA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B231B58616F31D39003C1E8B /* SBJson.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = BCC2626813920FC7003D9994;
-			remoteInfo = "sbjson-ios";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -316,11 +281,15 @@
 		B2306ED816CE242600BFF373 /* IASKTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKTextField.m; sourceTree = "<group>"; };
 		B2306EE716CE24B200BFF373 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B2306EEC16CE3EFB00BFF373 /* InAppSettings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = InAppSettings.bundle; path = ../InAppSettings.bundle; sourceTree = "<group>"; };
-		B231B58616F31D39003C1E8B /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "json-framework-master/SBJson.xcodeproj"; sourceTree = "<group>"; };
 		B238897D16976E0B00A0FF86 /* ZoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomView.h; sourceTree = "<group>"; };
 		B238897E16976E0B00A0FF86 /* ZoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomView.m; sourceTree = "<group>"; };
 		B23889801697793B00A0FF86 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
 		B26C2026164B948C00F93DAE /* star.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = star.gif; sourceTree = "<group>"; };
+		B29E230616F4590900AF3F3A /* LoginConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginConnection.h; sourceTree = "<group>"; };
+		B29E230716F4590900AF3F3A /* LoginConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginConnection.m; sourceTree = "<group>"; };
+		B29E230816F4590900AF3F3A /* RegisterConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterConnection.h; sourceTree = "<group>"; };
+		B29E230916F4590900AF3F3A /* RegisterConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterConnection.m; sourceTree = "<group>"; };
+		B29E231016F465E900AF3F3A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B2BADDC6163F5692002C6477 /* Panagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Panagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2BADDCA163F5692002C6477 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B2BADDCC163F5692002C6477 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -354,7 +323,6 @@
 		B2CE9E01168C5FFC00586B15 /* ZoomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZoomView.xib; sourceTree = "<group>"; };
 		B2CFC9C316CD9DAC007AF917 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		B2CFC9C416CD9DAC007AF917 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		B2D5098316A0C94A0067B552 /* FeedList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FeedList.plist; sourceTree = "<group>"; };
 		B2D5098416A0C94A0067B552 /* FeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedParser.h; sourceTree = "<group>"; };
 		B2D5098516A0C94A0067B552 /* FeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedParser.m; sourceTree = "<group>"; };
 		B2DBE4BF16F31E9100491FAA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -391,7 +359,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2DBE4BE16F31DD200491FAA /* libsbjson-ios.a in Frameworks */,
 				B22E413916A1195A0038F267 /* libGPUImage.a in Frameworks */,
 				E73B5BA216D029EA003827FC /* Accounts.framework in Frameworks */,
 				E73B5BA416D029F6003827FC /* AdSupport.framework in Frameworks */,
@@ -400,13 +367,14 @@
 				B2BADDCF163F5692002C6477 /* CoreGraphics.framework in Frameworks */,
 				B2DBE4C616F31EE100491FAA /* CoreMedia.framework in Frameworks */,
 				B2DBE4C816F31EEA00491FAA /* CoreVideo.framework in Frameworks */,
+				B29E231116F465E900AF3F3A /* Foundation.framework in Frameworks */,
 				E73B5B9E16D02981003827FC /* FacebookSDK.framework in Frameworks */,
-				B2BADDCD163F5692002C6477 /* Foundation.framework in Frameworks */,
 				B2306EE816CE24B200BFF373 /* MessageUI.framework in Frameworks */,
 				B2DBE4C416F31ED500491FAA /* OpenGLES.framework in Frameworks */,
 				B2DBE4C216F31ECB00491FAA /* QuartzCore.framework in Frameworks */,
 				E73B5BA616D02A13003827FC /* Social.framework in Frameworks */,
 				B2BADDCB163F5692002C6477 /* UIKit.framework in Frameworks */,
+				B29E231116F465E900AF3F3A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,21 +585,9 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		B231B58716F31D39003C1E8B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B231B59016F31D39003C1E8B /* SBJson.framework */,
-				B231B59216F31D39003C1E8B /* SBJsonTests.octest */,
-				B231B59416F31D39003C1E8B /* libsbjson-ios.a */,
-				B231B59616F31D39003C1E8B /* sbjson-iosTests.octest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		B2BADDBB163F5692002C6477 = {
 			isa = PBXGroup;
 			children = (
-				B231B58616F31D39003C1E8B /* SBJson.xcodeproj */,
 				B22E412A16A119450038F267 /* GPUImage.xcodeproj */,
 				B22E3F3816A114EE0038F267 /* Resources */,
 				B2BADDD0163F5692002C6477 /* Panagram */,
@@ -651,6 +607,7 @@
 		B2BADDC9163F5692002C6477 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B29E231016F465E900AF3F3A /* Foundation.framework */,
 				E73B5BA116D029EA003827FC /* Accounts.framework */,
 				E73B5BA316D029F6003827FC /* AdSupport.framework */,
 				B2DCBED21669BBE200EC3926 /* AssetsLibrary.framework */,
@@ -686,7 +643,6 @@
 				B2BADDE5163F5692002C6477 /* MainStoryboard_iPad.storyboard */,
 				B21AFE7F163F572B00F40941 /* FeedStructure.h */,
 				B21AFE80163F572B00F40941 /* FeedStructure.m */,
-				B2D5098316A0C94A0067B552 /* FeedList.plist */,
 				B2D5098416A0C94A0067B552 /* FeedParser.h */,
 				B2D5098516A0C94A0067B552 /* FeedParser.m */,
 				B2BADDE8163F5692002C6477 /* FirstViewController.h */,
@@ -751,6 +707,10 @@
 		E72E4B4316D17DFC0070CA81 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				B29E230616F4590900AF3F3A /* LoginConnection.h */,
+				B29E230716F4590900AF3F3A /* LoginConnection.m */,
+				B29E230816F4590900AF3F3A /* RegisterConnection.h */,
+				B29E230916F4590900AF3F3A /* RegisterConnection.m */,
 				E72E4B4416D17DFC0070CA81 /* FacebookLoginViewController.h */,
 				E72E4B4516D17DFC0070CA81 /* FacebookLoginViewController.m */,
 				E72E4B4816D17DFC0070CA81 /* LoginStoryBoard.storyboard */,
@@ -790,7 +750,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B2DBE4B716F31DB500491FAA /* PBXTargetDependency */,
 				B22E413816A1194E0038F267 /* PBXTargetDependency */,
 			);
 			name = Panagram;
@@ -822,10 +781,6 @@
 					ProductGroup = B22E412B16A119450038F267 /* Products */;
 					ProjectRef = B22E412A16A119450038F267 /* GPUImage.xcodeproj */;
 				},
-				{
-					ProductGroup = B231B58716F31D39003C1E8B /* Products */;
-					ProjectRef = B231B58616F31D39003C1E8B /* SBJson.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -847,34 +802,6 @@
 			fileType = wrapper.cfbundle;
 			path = GPUImageTests.octest;
 			remoteRef = B22E413516A119460038F267 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B231B59016F31D39003C1E8B /* SBJson.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SBJson.framework;
-			remoteRef = B231B58F16F31D39003C1E8B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B231B59216F31D39003C1E8B /* SBJsonTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SBJsonTests.octest;
-			remoteRef = B231B59116F31D39003C1E8B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B231B59416F31D39003C1E8B /* libsbjson-ios.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libsbjson-ios.a";
-			remoteRef = B231B59316F31D39003C1E8B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B231B59616F31D39003C1E8B /* sbjson-iosTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "sbjson-iosTests.octest";
-			remoteRef = B231B59516F31D39003C1E8B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -963,7 +890,6 @@
 				B21DB8BB1688250900B5AF9C /* photo_bar@2x.png in Resources */,
 				B2CE9E02168C5FFC00586B15 /* ZoomView.xib in Resources */,
 				B23889811697793B00A0FF86 /* Placeholder.png in Resources */,
-				B2D5098616A0C94A0067B552 /* FeedList.plist in Resources */,
 				B2306EED16CE3EFC00BFF373 /* InAppSettings.bundle in Resources */,
 				E73B5BA016D02994003827FC /* FacebookSDKResources.bundle in Resources */,
 				E72E4B4F16D17DFC0070CA81 /* LoginStoryBoard.storyboard in Resources */,
@@ -977,6 +903,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B29E231316F466A600AF3F3A /* LoginConnection.m in Sources */,
+				B29E231516F466A600AF3F3A /* RegisterConnection.m in Sources */,
 				B22E438516A1256E0038F267 /* GrayscaleContrastFilter.m in Sources */,
 				B2C631D8168839D400DA0562 /* BlurOverlayView.m in Sources */,
 				B2C631D7168839AB00DA0562 /* DLCImagePickerController.m in Sources */,
@@ -1022,11 +950,6 @@
 			isa = PBXTargetDependency;
 			name = GPUImage;
 			targetProxy = B22E413716A1194E0038F267 /* PBXContainerItemProxy */;
-		};
-		B2DBE4B716F31DB500491FAA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "sbjson-ios";
-			targetProxy = B2DBE4B616F31DB500491FAA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

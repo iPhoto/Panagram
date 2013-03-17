@@ -27,6 +27,4 @@
 @property (nonatomic, assign) int rating;
 @property (nonatomic, retain) NSString *timestamp;
 
-- (NSString *) getStringTimestamp;
-
 @end

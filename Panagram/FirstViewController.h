@@ -19,6 +19,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *myTable;
 @property (nonatomic, retain) NSMutableArray *feedTable;
+@property (nonatomic, retain) NSMutableArray *indexedEntries;
 @property (nonatomic, retain) NSMutableDictionary *imageDownloadsInProgress;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem * refresh;
 @end

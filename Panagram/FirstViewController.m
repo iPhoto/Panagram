@@ -23,6 +23,7 @@
 @synthesize feedTable;
 @synthesize imageDownloadsInProgress;
 @synthesize refresh;
+@synthesize indexedEntries;
 
 - (void)viewDidLoad
 {
@@ -31,44 +32,45 @@
     self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
     // Load feed entries into array
     feedTable = [[NSMutableArray alloc] init];
-    FeedStructure *fs;
-    FeedParser *parser = [[FeedParser alloc] init];
-    for (NSDictionary *entry in parser.feedList) {
-        fs = [[FeedStructure alloc] init];
-        [fs setUsername:[entry objectForKey:@"Username"]];
-        [fs setAvatarURL:[entry objectForKey:@"AvatarURL"]];
-        [fs setImageURL:[entry objectForKey:@"ImageURL"]];
-        [fs setRating:[[entry objectForKey:@"Rating"] floatValue]];
-        [fs setDescription:[entry objectForKey:@"Description"]];
-        double time = [[entry objectForKey:@"Timestamp"] timeIntervalSince1970];
-        [fs setTimestamp:[NSString stringWithFormat:@"%f", time]];
-        [feedTable addObject:fs];
-    }
-    //[fs setUsername: @"Johnny"];
-    /*[fs setUsername: parser.username];
-    [fs setAvatarURL:@"http://www.sweekim.com/images/Tut_Eddy_img02.jpg"];
-    [fs setImageURL:@"http://cdn3.pcadvisor.co.uk/cmsdata/features/3401121/iPhone-5-panorama-London-Bridge.png"];
-    [fs setRating:3];
-    [fs setDescription:@"Image 1 Desc"];
-    NSDate *currentTime = [NSDate date];
-    double time = [currentTime timeIntervalSince1970];
-    [fs setTimestamp:[NSString stringWithFormat:@"%f", time]];
-    [feedTable addObject:fs];*/
-    /*fs = [[FeedStructure alloc] init];
-    [fs setUsername: @"James"];
-    [fs setAvatarURL:@"http://www.moreart.org/wp-content/uploads/2010/02/generic_person2.jpg"];
-    [fs setImageURL:@"http://upload.wikimedia.org/wikipedia/commons/5/5f/Chicago_Downtown_Panorama.jpg"];
-    [fs setRating:1];
-    [fs setDescription:@"Image 2 Desc"];
-    [fs setTimestamp:@"1304245000"];
-    [feedTable addObject:fs];*/
+    indexedEntries = [[NSMutableArray alloc] init];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://127.0.0.1:8888/include_php/ImageEntry.php?start=0"]];
+        [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
+    });
     tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(zoomTap:)];
     [tap setNumberOfTouchesRequired:1];
     [tap setNumberOfTapsRequired:1];
     [tap setDelegate:self];
     
 }
-
+- (void)fetchedData:(NSData *)responseData {
+    //parse out the json data
+    NSError* error;
+    //ARRAY OR DICT DEPENDING ON YOUR DATA STRUCTURE
+    NSArray *json = [NSJSONSerialization
+                          JSONObjectWithData:responseData
+                          
+                          options:kNilOptions
+                          error:&error];
+    FeedStructure *fs;
+    if (!json) {
+        NSLog(@"Error parsing JSON: %@", error);
+    } else {
+        for (NSDictionary *entry in json) {
+            if (![indexedEntries containsObject:[entry objectForKey:@"id"]]) {
+            fs = [[FeedStructure alloc] init];
+            [fs setUsername:[entry objectForKey:@"username"]];
+            [fs setAvatarURL:[entry objectForKey:@"avatarURL"]];
+            [fs setImageURL:[entry objectForKey:@"imageURL"]];
+            [fs setRating:[[entry objectForKey:@"rating"] floatValue]];
+            [fs setDescription:[entry objectForKey:@"imgDesc"]];
+            [fs setTimestamp:[entry objectForKey:@"timestamp"]];
+            [indexedEntries addObject:[entry objectForKey:@"id"]];
+            [feedTable insertObject:fs atIndex:0];
+            }
+        }
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -135,7 +137,7 @@
         }
         cell.nameLabel.text = fs.username;
         cell.imageDesc.text = fs.description;
-        cell.timestamp.text = [fs getStringTimestamp];
+        cell.timestamp.text = fs.timestamp;
         UIImage *starPic = [UIImage imageNamed:@"star.gif"];
 
         if (fs.rating >= 1)
@@ -186,7 +188,7 @@
 
 -(IBAction) refreshTable:(id) sender {
 
-    NSArray *visiblePaths = [self.myTable indexPathsForVisibleRows];
+    /*NSArray *visiblePaths = [self.myTable indexPathsForVisibleRows];
     for (NSIndexPath *indexPath in visiblePaths)
     {
         //FeedStructure *appRecord = [self.feedTable objectAtIndex:indexPath.row];
@@ -207,9 +209,14 @@
             
             cell.thumbnailImageView.image = currentFilteredVideoFrame;
         //}
-    }
-    
-	//[myTable reloadData];
+    }*/
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSString* script = [NSString stringWithFormat:@"http://127.0.0.1:8888/include_php/ImageEntry.php?start=%i",feedTable.count];
+        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:script]];
+        [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
+    });
+    // TO FIX: Existing cells will be overwritten (not added) until refreshed again
+	[myTable reloadData];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

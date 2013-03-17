@@ -31,9 +31,9 @@
 	// Do any additional setup after loading the view.
     self.loginButton.layer.cornerRadius = 10.0;
     
-    NSArray *fields = @[self.userName,self.password];
+    NSArray *fields = @[self.username,self.password];
     [self setKeyboardControls:[[BSKeyboardControls alloc] initWithFields:fields]];
-    [self.keyboardControls setDelegate:(id)self];
+    [self.keyboardControls setDelegate:self];
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -68,13 +68,95 @@
 }
 
 - (IBAction)Login:(id)sender {
-    [self showPopupMsg:@""];
-    UIStoryboard *mainStoryBoard=[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    //[self showPopupMsg:@""];
+    LoginConnection * connection = [[LoginConnection alloc] init];
+    
+    NSString * username = self.username.text;
+    NSString *password = self.password.text;
+    
+    
+    //always check if user enter username and password.
+    if(username.length == 0 || password.length == 0 )
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Empty Input"
+                                                        message:@"Enter username or password"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        alert = nil; //release arlet when done
+    }
+    
+    else
+    {
+        [connection setDelegate:self];
+        [connection createConnection:username :password];
+        
+    }
+    connection= nil;
+    username = nil;
+    password = nil;    //[self signInButtonClicked];
+    /*UIStoryboard *mainStoryBoard=[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     UIViewController *mainController=[mainStoryBoard instantiateInitialViewController];
     mainController.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:mainController animated:YES completion:^(){
         [HUD hide:YES];
-    }];
+    }];*/
+}
+
+
+/*- (void) signInButtonClicked {
+    
+    // create connection and process
+    LoginConnection * connection = [[LoginConnection alloc] init];
+    
+    NSString * username = self.username.text;
+    NSString *password = self.password.text;
+    
+    
+    //always check if user enter username and password.
+    if(username.length == 0 || password.length == 0 )
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Empty Input"
+                                                        message:@"Enter username or password"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        alert = nil; //release arlet when done
+    }
+    
+    else
+    {
+        [connection setDelegate:self];
+        [connection createConnection:username :password];
+        
+    }
+    connection= nil;
+    username = nil;
+    password = nil;
+    
+    
+}*/
+// delegation method, refer to the method in Connection class
+// @param login : Yes = success, No = fail
+- (void) isLogInSuccessful : (BOOL)login;
+{
+    if(login == YES) {
+        UIStoryboard *mainStoryBoard=[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+        UIViewController *mainController=[mainStoryBoard instantiateInitialViewController];
+        mainController.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+        [self presentViewController:mainController animated:YES completion:^(){
+            [HUD hide:YES];
+        }];
+    } else if (login == NO)
+    {
+        //[self performSegueWithIdentifier:@"LoginFail" sender:self];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Failed"
+                                                        message:@"Could not find your username or password on the server"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Try Again" otherButtonTitles: nil];
+        [alert show];
+        alert = nil; //release arlet when done
+    }
 }
 
 -(void) showPopupMsg:(NSString *)msg {
