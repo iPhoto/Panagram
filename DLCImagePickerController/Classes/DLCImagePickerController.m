@@ -97,7 +97,8 @@
     
     filter = [[GPUImageFilter alloc] init];
     
-    [self.photoCaptureButton setTitle:@"Done" forState:UIControlStateNormal];
+    [self.photoCaptureButton setTitle:@"Save" forState:UIControlStateNormal];
+    [self.photoCaptureButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self.photoCaptureButton setImage:nil forState:UIControlStateNormal];
     [self.photoCaptureButton setEnabled:NO];
     
@@ -764,7 +765,8 @@
         [self.cameraToggleButton setEnabled:NO];
         [self.flashToggleButton setEnabled:NO];
         [self prepareStaticFilter];
-        [self.photoCaptureButton setTitle:@"Done" forState:UIControlStateNormal];
+        //[self.photoCaptureButton setTitle:@"Save" forState:UIControlStateNormal];
+        [self.photoCaptureButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self.photoCaptureButton setImage:nil forState:UIControlStateNormal];
         [self.photoCaptureButton setEnabled:YES];
         if(![self.filtersToggleButton isSelected]){
@@ -788,9 +790,13 @@
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
 
-//- (NSUInteger)supportedInterfaceOrientations {
-//    return UIInterfaceOrientationMaskPortrait;
-//}
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (NSUInteger)shouldAutoRotate {
+    return true;
+}
 
 #endif
 

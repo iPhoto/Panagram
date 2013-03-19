@@ -49,7 +49,7 @@ NSString *const FBSessionStateChangedNotification = @"com.facebook.Scrumptious:S
 
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
 {
-    return UIInterfaceOrientationMaskLandscape;
+    return UIInterfaceOrientationMaskAllButUpsideDown;
 }
 
 

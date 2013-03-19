@@ -74,7 +74,8 @@
     NSString * username = self.username.text;
     NSString *password = self.password.text;
     
-    
+    //[self isLogInSuccessful:YES];
+    //return;
     //always check if user enter username and password.
     if(username.length == 0 || password.length == 0 )
     {
@@ -179,6 +180,14 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     [self.keyboardControls setActiveField:textField];
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscape;
+}
+
+- (NSUInteger)shouldAutoRotate {
+    return true;
 }
 
 @end

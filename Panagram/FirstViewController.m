@@ -34,7 +34,7 @@
     feedTable = [[NSMutableArray alloc] init];
     indexedEntries = [[NSMutableArray alloc] init];
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://127.0.0.1:8888/include_php/ImageEntry.php?start=0"]];
+        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://192.168.0.102:8888/include_php/ImageEntry.php?start=0"]];
         [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
     });
     tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(zoomTap:)];
@@ -211,7 +211,7 @@
         //}
     }*/
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSString* script = [NSString stringWithFormat:@"http://127.0.0.1:8888/include_php/ImageEntry.php?start=%i",feedTable.count];
+        NSString* script = [NSString stringWithFormat:@"http://192.168.0.102:8888/include_php/ImageEntry.php?start=%i",feedTable.count];
         NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:script]];
         [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
     });
@@ -293,8 +293,14 @@
     [self loadImagesForOnscreenRows];
 }
 
--(NSUInteger)supportedInterfaceOrientations{
-    return UIInterfaceOrientationMaskLandscape;
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    [myTable reloadData];
+    
 }
+
+//-(NSUInteger)supportedInterfaceOrientations {
+//    return UIInterfaceOrientationMaskPortrait;
+//}
 
 @end

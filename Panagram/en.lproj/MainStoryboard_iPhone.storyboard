@@ -82,7 +82,7 @@
                         <rect key="frame" x="0.0" y="64" width="568" height="207"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aCh-ve-yYz">
+                            <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aCh-ve-yYz">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="2" id="XXO-D6-JE6"/>
@@ -107,7 +107,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="myTable" destination="aCh-ve-yYz" id="VQV-Us-ZQD"/>
                         <outlet property="refresh" destination="zFf-Qb-h7F" id="x3g-Ib-Xnm"/>
@@ -221,115 +220,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtY-5v-omU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="627" y="420"/>
-        </scene>
-        <!--View Controller Filters-->
-        <scene sceneID="M66-db-DrL">
-            <objects>
-                <viewController storyboardIdentifier="FilterView" id="WS6-AK-tbs" customClass="ViewControllerFilters" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="DHE-7p-cwp">
-                        <rect key="frame" x="0.0" y="20" width="568" height="300"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oeZ-AM-2VZ">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="185" id="d8V-AD-gUd"/>
-                                    <constraint firstAttribute="height" constant="85" id="vWL-bz-xq9"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="axM-BR-xa8">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="185" id="NG8-pb-7dh"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z2p-8J-akM">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="BTa-RU-Tnw"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1Y-AX-Ocg">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="185" id="YCL-Cn-7KM"/>
-                                    <constraint firstAttribute="height" constant="85" id="skx-tX-abk"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="95i-DV-xWl"/>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEX-88-7tn"/>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xug-si-tPd">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="5sX-sQ-HiZ"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BnK-RQ-BWs"/>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnE-HC-9UH">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="185" id="L3T-hC-uW1"/>
-                                </constraints>
-                            </imageView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2X-SF-0Ed">
-                                <items>
-                                    <navigationItem title="Filters" id="ADa-BJ-6uO">
-                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="Cdw-z6-I6q">
-                                            <connections>
-                                                <action selector="exit:" destination="WS6-AK-tbs" id="KyJ-8f-M4E"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="T2X-SF-0Ed" firstAttribute="top" secondItem="DHE-7p-cwp" secondAttribute="top" type="default" id="4tq-7y-63D"/>
-                            <constraint firstItem="axM-BR-xa8" firstAttribute="top" secondItem="gEX-88-7tn" secondAttribute="top" type="default" id="7pe-uQ-FMx"/>
-                            <constraint firstItem="T2X-SF-0Ed" firstAttribute="leading" secondItem="DHE-7p-cwp" secondAttribute="leading" type="default" id="821-q6-2Yh"/>
-                            <constraint firstItem="oeZ-AM-2VZ" firstAttribute="leading" secondItem="DHE-7p-cwp" secondAttribute="leading" type="default" id="8sB-bI-6k9"/>
-                            <constraint firstItem="q1Y-AX-Ocg" firstAttribute="trailing" secondItem="DHE-7p-cwp" secondAttribute="trailing" type="default" id="9Qf-gI-qya"/>
-                            <constraint firstItem="gEX-88-7tn" firstAttribute="trailing" secondItem="DHE-7p-cwp" secondAttribute="trailing" type="default" id="ASp-3e-DBx"/>
-                            <constraint firstItem="T2X-SF-0Ed" firstAttribute="centerX" secondItem="rnE-HC-9UH" secondAttribute="centerX" type="default" id="DZR-Yi-qUK"/>
-                            <constraint firstItem="BnK-RQ-BWs" firstAttribute="bottom" secondItem="DHE-7p-cwp" secondAttribute="bottom" type="default" id="Ese-Ge-mJb"/>
-                            <constraint firstItem="gEX-88-7tn" firstAttribute="leading" secondItem="BnK-RQ-BWs" secondAttribute="leading" type="default" id="HEu-Nr-cSi"/>
-                            <constraint firstItem="axM-BR-xa8" firstAttribute="bottom" secondItem="Z2p-8J-akM" secondAttribute="bottom" type="default" id="KBW-bX-JpD"/>
-                            <constraint firstItem="Xug-si-tPd" firstAttribute="leading" secondItem="DHE-7p-cwp" secondAttribute="leading" type="default" id="MUR-z7-Rho"/>
-                            <constraint firstItem="q1Y-AX-Ocg" firstAttribute="top" secondItem="DHE-7p-cwp" secondAttribute="top" constant="45" id="QlC-8K-cDh"/>
-                            <constraint firstItem="oeZ-AM-2VZ" firstAttribute="trailing" secondItem="Z2p-8J-akM" secondAttribute="trailing" type="default" id="SKI-i5-IJL"/>
-                            <constraint firstItem="axM-BR-xa8" firstAttribute="leading" secondItem="Z2p-8J-akM" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="SVo-bn-Y1n"/>
-                            <constraint firstItem="95i-DV-xWl" firstAttribute="trailing" secondItem="axM-BR-xa8" secondAttribute="trailing" type="default" id="Siy-ga-D2M"/>
-                            <constraint firstItem="Z2p-8J-akM" firstAttribute="leading" secondItem="DHE-7p-cwp" secondAttribute="leading" type="default" id="V0J-5U-Fe6"/>
-                            <constraint firstItem="axM-BR-xa8" firstAttribute="leading" secondItem="95i-DV-xWl" secondAttribute="leading" type="default" id="ZMa-MH-FTB"/>
-                            <constraint firstItem="95i-DV-xWl" firstAttribute="bottom" secondItem="DHE-7p-cwp" secondAttribute="bottom" type="default" id="asB-Jd-QM5"/>
-                            <constraint firstItem="gEX-88-7tn" firstAttribute="leading" secondItem="q1Y-AX-Ocg" secondAttribute="leading" type="default" id="bTm-xa-hOX"/>
-                            <constraint firstItem="axM-BR-xa8" firstAttribute="top" secondItem="Z2p-8J-akM" secondAttribute="top" type="default" id="blH-tO-CX5"/>
-                            <constraint firstItem="BnK-RQ-BWs" firstAttribute="trailing" secondItem="DHE-7p-cwp" secondAttribute="trailing" type="default" id="eFh-us-nFr"/>
-                            <constraint firstItem="gEX-88-7tn" firstAttribute="bottom" secondItem="axM-BR-xa8" secondAttribute="bottom" type="default" id="eU7-3b-55m"/>
-                            <constraint firstItem="BnK-RQ-BWs" firstAttribute="top" secondItem="95i-DV-xWl" secondAttribute="top" type="default" id="g6g-GD-YwX"/>
-                            <constraint firstItem="Xug-si-tPd" firstAttribute="bottom" secondItem="DHE-7p-cwp" secondAttribute="bottom" type="default" id="gGB-jz-wqx"/>
-                            <constraint firstItem="rnE-HC-9UH" firstAttribute="top" secondItem="oeZ-AM-2VZ" secondAttribute="top" type="default" id="ksf-4o-SNs"/>
-                            <constraint firstItem="T2X-SF-0Ed" firstAttribute="trailing" secondItem="DHE-7p-cwp" secondAttribute="trailing" type="default" id="ljO-Si-DoG"/>
-                            <constraint firstItem="Xug-si-tPd" firstAttribute="top" secondItem="95i-DV-xWl" secondAttribute="top" type="default" id="pyM-Zb-3iN"/>
-                            <constraint firstItem="95i-DV-xWl" firstAttribute="leading" secondItem="Xug-si-tPd" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="qMT-5f-qLd"/>
-                            <constraint firstItem="Z2p-8J-akM" firstAttribute="top" secondItem="DHE-7p-cwp" secondAttribute="top" constant="129" id="qPL-ff-CDa"/>
-                            <constraint firstItem="oeZ-AM-2VZ" firstAttribute="bottom" secondItem="rnE-HC-9UH" secondAttribute="bottom" type="default" id="xd4-7p-fK1"/>
-                            <constraint firstItem="oeZ-AM-2VZ" firstAttribute="top" secondItem="T2X-SF-0Ed" secondAttribute="bottom" type="default" id="zsJ-5x-y0t"/>
-                        </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <connections>
-                        <outlet property="exit" destination="Cdw-z6-I6q" id="NMe-Gk-wrk"/>
-                        <outlet property="filter1" destination="oeZ-AM-2VZ" id="GIN-bj-O6R"/>
-                        <outlet property="filter2" destination="rnE-HC-9UH" id="TWK-7n-Dkw"/>
-                        <outlet property="filter3" destination="q1Y-AX-Ocg" id="p73-Sq-jPc"/>
-                        <outlet property="filter4" destination="Z2p-8J-akM" id="xAE-n3-nqw"/>
-                        <outlet property="filter5" destination="axM-BR-xa8" id="8Wv-KV-c95"/>
-                        <outlet property="filter6" destination="gEX-88-7tn" id="msI-P4-aM5"/>
-                        <outlet property="filter7" destination="Xug-si-tPd" id="1cf-nW-w3X"/>
-                        <outlet property="filter8" destination="95i-DV-xWl" id="jlJ-Cf-lhF"/>
-                        <outlet property="filter9" destination="BnK-RQ-BWs" id="tcL-GC-q1r"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8D6-lh-Qlq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1215" y="420"/>
         </scene>
         <!--Zoom View-->
         <scene sceneID="e1V-g5-PRn">
@@ -807,87 +697,6 @@
         <image name="first.png" width="30" height="30"/>
         <image name="second" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="CameraAppViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CameraAppViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addFilter:"/>
-                <relationship kind="action" name="getPhoto:"/>
-                <relationship kind="outlet" name="choosePhotoBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="filters" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="takePhotoBtn" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="FBProfilePictureView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FBProfilePictureView.h"/>
-        </class>
-        <class className="FirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="myTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="refresh" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="MyCollectionViewCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyCollectionViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="MyCollectionViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyCollectionViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ProfileViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="LogOutClicked:"/>
-                <relationship kind="outlet" name="birthDate" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="birthDateBG" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="fackbook" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="firstName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="firstNameBG" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="gender" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="genderBG" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="lastName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lastNameBG" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="userImage" candidateClass="FBProfilePictureView"/>
-            </relationships>
-        </class>
-        <class className="SearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="theSearchBar" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="theTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="ZoomView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZoomView.h"/>
-            <relationships>
-                <relationship kind="action" name="exit:"/>
-                <relationship kind="outlet" name="exit" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
