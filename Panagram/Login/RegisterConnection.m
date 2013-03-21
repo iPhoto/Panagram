@@ -7,6 +7,7 @@
 //
 
 #import "RegisterConnection.h"
+#import "Constant.h"
 
 @implementation RegisterConnection
 @synthesize receivedData;
@@ -31,7 +32,7 @@
  */
 - (void)createConnection: (NSString *) username : (NSString *)password
 {
-    NSString* link = @"http://192.168.0.102:8888/include_php/registerData.php";
+    NSString* link = [NSString stringWithFormat:@"%@/include_php/registerData.php", SERVER_URL];
     NSMutableURLRequest *theRequest=[NSMutableURLRequest
                                      requestWithURL:[NSURL URLWithString: link]
                                      cachePolicy:NSURLRequestUseProtocolCachePolicy

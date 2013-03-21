@@ -8,9 +8,10 @@
 
 #import "FirstViewController.h"
 #import "SimpleTableCell.h"
-#import "FeedStructure.h"
-#import "ZoomView.h"
+#import "FeedEntry.h"
 #import "FeedParser.h"
+#import "ImageViewController.h"
+#import "Constant.h"
 
 
 @interface FirstViewController ()
@@ -34,43 +35,42 @@
     feedTable = [[NSMutableArray alloc] init];
     indexedEntries = [[NSMutableArray alloc] init];
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://192.168.0.102:8888/include_php/ImageEntry.php?start=0"]];
+        NSString* link = [NSString stringWithFormat:@"%@/include_php/ImageEntry.php?start=0", SERVER_URL];
+        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:link]];
         [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
     });
-    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(zoomTap:)];
-    [tap setNumberOfTouchesRequired:1];
-    [tap setNumberOfTapsRequired:1];
-    [tap setDelegate:self];
-    
 }
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    [myTable reloadData];
+}
+
 - (void)fetchedData:(NSData *)responseData {
-    //parse out the json data
     NSError* error;
-    //ARRAY OR DICT DEPENDING ON YOUR DATA STRUCTURE
-    NSArray *json = [NSJSONSerialization
-                          JSONObjectWithData:responseData
-                          
-                          options:kNilOptions
-                          error:&error];
-    FeedStructure *fs;
+    NSArray *json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
+    FeedEntry *fs;
     if (!json) {
         NSLog(@"Error parsing JSON: %@", error);
     } else {
         for (NSDictionary *entry in json) {
             if (![indexedEntries containsObject:[entry objectForKey:@"id"]]) {
-            fs = [[FeedStructure alloc] init];
-            [fs setUsername:[entry objectForKey:@"username"]];
-            [fs setAvatarURL:[entry objectForKey:@"avatarURL"]];
-            [fs setImageURL:[entry objectForKey:@"imageURL"]];
-            [fs setRating:[[entry objectForKey:@"rating"] floatValue]];
-            [fs setDescription:[entry objectForKey:@"imgDesc"]];
-            [fs setTimestamp:[entry objectForKey:@"timestamp"]];
-            [indexedEntries addObject:[entry objectForKey:@"id"]];
-            [feedTable insertObject:fs atIndex:0];
+                fs = [[FeedEntry alloc] init];
+                [fs setUsername:[entry objectForKey:@"username"]];
+                [fs setAvatarURL:[entry objectForKey:@"avatarURL"]];
+                [fs setImageURL:[entry objectForKey:@"imageURL"]];
+                [fs setRating:[[entry objectForKey:@"rating"] floatValue]];
+                [fs setDescription:[entry objectForKey:@"imgDesc"]];
+                [fs setTimestamp:[entry objectForKey:@"timestamp"]];
+                [fs setLikes:[[entry objectForKey:@"likes"] intValue]];
+                [fs setComments:[[entry objectForKey:@"comments"] intValue]];
+                [indexedEntries addObject:[entry objectForKey:@"id"]];
+                [feedTable insertObject:fs atIndex:0];
             }
         }
     }
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -91,7 +91,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [feedTable count];
+    BOOL hasMatches = [feedTable count] > 0;
+    return hasMatches ? [feedTable count] : 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,7 +101,6 @@
     static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
     
     int nodeCount = [self->feedTable count];
-	
 	if (nodeCount == 0 && indexPath.row == 0)
 	{
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PlaceholderCellIdentifier];
@@ -130,7 +130,7 @@
     if (nodeCount > 0)
 	{
         // Set up the cell...
-        FeedStructure *fs = [feedTable objectAtIndex:indexPath.row];
+        FeedEntry *fs = [feedTable objectAtIndex:indexPath.row];
         if (!fs.avatarImg) {
             cell.nameAvatar.image = [self loadImage:fs.avatarURL];
             fs.avatarImg = cell.nameAvatar.image;
@@ -151,6 +151,9 @@
         if (fs.rating >= 5)
             cell.star5.image = starPic;
 		
+        cell.likes.text = [NSString stringWithFormat:@"%i Like(s)", fs.likes];
+        cell.comments.text = [NSString stringWithFormat:@"%i Comment(s)", fs.comments];
+        
         // Only load cached images; defer new downloads until scrolling ends
         if (!fs.origImage)
         {
@@ -167,23 +170,8 @@
             cell.thumbnailImageView.image = fs.origImage;
             cell.nameAvatar.image = fs.avatarImg;
         }
-        [cell.thumbnailImageView setUserInteractionEnabled:YES];
-        [cell.thumbnailImageView addGestureRecognizer:tap];
-        [cell.thumbnailImageView setTag:indexPath.row];
-        
     }
-    
     return cell;
-}
-
-- (void)zoomTap:(UIGestureRecognizer *) sender
-{
-    ZoomView *zoom = [[ZoomView alloc] initWithNibName:@"ZoomView" bundle:nil];
-    int tag = ((UIImageView *) sender.view).tag;
-    FeedStructure *fs = [feedTable objectAtIndex:tag];
-    zoom.image = fs.origImage;
-    zoom.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-	[self presentViewController:zoom animated:YES completion:NULL];
 }
 
 -(IBAction) refreshTable:(id) sender {
@@ -211,8 +199,8 @@
         //}
     }*/
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSString* script = [NSString stringWithFormat:@"http://192.168.0.102:8888/include_php/ImageEntry.php?start=%i",feedTable.count];
-        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:script]];
+        NSString* link = [NSString stringWithFormat:@"%@/include_php/ImageEntry.php?start=%i", SERVER_URL, feedTable.count];
+        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:link]];
         [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
     });
     // TO FIX: Existing cells will be overwritten (not added) until refreshed again
@@ -226,7 +214,7 @@
 #pragma mark -
 #pragma mark Table cell image support
 
-- (void)startImageDownload:(FeedStructure *)appRecord forIndexPath:(NSIndexPath *)indexPath
+- (void)startImageDownload:(FeedEntry *)appRecord forIndexPath:(NSIndexPath *)indexPath
 {
     ImageDownloader *imageDownloader = [imageDownloadsInProgress objectForKey:indexPath];
     if (imageDownloader == nil)
@@ -249,7 +237,7 @@
         NSArray *visiblePaths = [self.myTable indexPathsForVisibleRows];
         for (NSIndexPath *indexPath in visiblePaths)
         {
-            FeedStructure *appRecord = [self.feedTable objectAtIndex:indexPath.row];
+            FeedEntry *appRecord = [self.feedTable objectAtIndex:indexPath.row];
             
             if (!appRecord.origImage) // avoid the app icon download if the app already has an icon
             {
@@ -266,10 +254,8 @@
     if (imageDownloader != nil)
     {
         SimpleTableCell *cell = (SimpleTableCell *)[self.myTable cellForRowAtIndexPath:imageDownloader.indexPathInTableView];
-
         cell.thumbnailImageView.image = imageDownloader.appRecord.origImage;
     }
-    
     // Remove the ImageDownloader from the in progress list.
     // This will result in it being deallocated.
     [imageDownloadsInProgress removeObjectForKey:indexPath];
@@ -299,8 +285,36 @@
     
 }
 
-//-(NSUInteger)supportedInterfaceOrientations {
-//    return UIInterfaceOrientationMaskPortrait;
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Deselect row
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // Declare the view controller
+    ImageViewController *anotherVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ImageViewController"];
+    
+    // Get cell textLabel string to use in new view controller title
+    //NSString *cellTitleText = [[[tableView cellForRowAtIndexPath:indexPath] textLabel] text];
+    
+    // Get object at the tapped cell index from table data source array to display in title
+    FeedEntry *tappedObj = [feedTable objectAtIndex:indexPath.row];
+    
+    // Set title indicating what row/section was tapped
+    [anotherVC setTitle:[NSString stringWithFormat:@"%@", tappedObj.imageURL]];
+    [anotherVC setEntry:tappedObj];
+    //NSLog(@"You tapped section: %d - row: %d - Cell Text: %@ - Sites: %@", indexPath.section, indexPath.row, cellTitleText, tappedObj);
+    
+    // present it modally (not necessary, but sometimes looks better then pushing it onto the stack - depending on your App)
+    [anotherVC setModalPresentationStyle:UIModalPresentationFormSheet];
+    
+    // Have the transition do a horizontal flip - my personal fav
+    [anotherVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    
+    // The method `presentModalViewController:animated:` is depreciated in iOS 6 so use `presentViewController:animated:completion:` instead.
+    //[self.navigationController presentViewController:anotherVC animated:YES completion:NULL];
+    [self.navigationController pushViewController:anotherVC animated:YES];
+    
+    // We are done with the view controller.  It is retained by self.navigationController so we can release it (if not using ARC)
+    anotherVC = nil;
+}
 
 @end

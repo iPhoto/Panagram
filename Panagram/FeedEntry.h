@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FeedStructure : NSObject {
+@interface FeedEntry : NSObject {
     NSString *username;
     NSString *avatarURL;
     UIImage *avatarImg;
@@ -16,6 +16,8 @@
     NSString *imageURL;
     int rating;
     NSString *timestamp;
+    int likes;
+    int comments;
 }
 
 @property (nonatomic, retain) NSString *username;
@@ -26,5 +28,7 @@
 @property (nonatomic, retain) UIImage *origImage;
 @property (nonatomic, assign) int rating;
 @property (nonatomic, retain) NSString *timestamp;
+@property (nonatomic, assign) int likes;
+@property (nonatomic, assign) int comments;
 
 @end

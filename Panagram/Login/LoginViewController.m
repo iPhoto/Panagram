@@ -69,13 +69,11 @@
 
 - (IBAction)Login:(id)sender {
     //[self showPopupMsg:@""];
-    LoginConnection * connection = [[LoginConnection alloc] init];
+    /*LoginConnection * connection = [[LoginConnection alloc] init];
     
     NSString * username = self.username.text;
     NSString *password = self.password.text;
     
-    //[self isLogInSuccessful:YES];
-    //return;
     //always check if user enter username and password.
     if(username.length == 0 || password.length == 0 )
     {
@@ -95,13 +93,14 @@
     }
     connection= nil;
     username = nil;
-    password = nil;    //[self signInButtonClicked];
-    /*UIStoryboard *mainStoryBoard=[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    password = nil;*/
+	//[self signInButtonClicked];
+    UIStoryboard *mainStoryBoard=[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     UIViewController *mainController=[mainStoryBoard instantiateInitialViewController];
     mainController.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:mainController animated:YES completion:^(){
         [HUD hide:YES];
-    }];*/
+    }];
 }
 
 

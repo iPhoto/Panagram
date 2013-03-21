@@ -31,8 +31,8 @@
 // Since this view is only for searching give the UISearchBar
 // focus right away
 - (void)viewDidAppear:(BOOL)animated {
-    [self.theSearchBar becomeFirstResponder];
-    [super viewDidAppear:animated];
+    //[self.theSearchBar becomeFirstResponder];
+    //[super viewDidAppear:animated];
 }
 
 #pragma mark -

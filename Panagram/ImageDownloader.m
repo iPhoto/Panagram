@@ -1,5 +1,5 @@
 #import "ImageDownloader.h"
-#import "FeedStructure.h"
+#import "FeedEntry.h"
 
 @implementation ImageDownloader
 

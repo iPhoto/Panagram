@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Hi Dev Mobile. All rights reserved.
 //
 
-#import "FeedStructure.h"
+#import "FeedEntry.h"
 
-@implementation FeedStructure
+@implementation FeedEntry
 
 @synthesize username;
 @synthesize avatarURL;
@@ -18,5 +18,7 @@
 @synthesize origImage;
 @synthesize rating;
 @synthesize timestamp;
+@synthesize likes;
+@synthesize comments;
 
 @end

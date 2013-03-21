@@ -1,11 +1,11 @@
-@class FeedStructure;
+@class FeedEntry;
 @class FirstViewController;
 
 @protocol ImageDownloaderDelegate;
 
 @interface ImageDownloader : NSObject
 {
-    FeedStructure *appRecord;
+    FeedEntry *appRecord;
     NSIndexPath *indexPathInTableView;
     __weak id <ImageDownloaderDelegate> delegate;
     
@@ -13,7 +13,7 @@
     NSURLConnection *imageConnection;
 }
 
-@property (nonatomic, retain) FeedStructure *appRecord;
+@property (nonatomic, retain) FeedEntry *appRecord;
 @property (nonatomic, retain) NSIndexPath *indexPathInTableView;
 @property (weak) id <ImageDownloaderDelegate> delegate;
 

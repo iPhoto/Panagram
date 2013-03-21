@@ -14,6 +14,8 @@
 @property (nonatomic, weak) IBOutlet UIImageView *nameAvatar;
 @property (nonatomic, weak) IBOutlet UIImageView *thumbnailImageView;
 @property (nonatomic, weak) IBOutlet UILabel *imageDesc;
+@property (nonatomic, weak) IBOutlet UILabel *likes;
+@property (nonatomic, weak) IBOutlet UILabel *comments;
 @property (nonatomic, weak) IBOutlet UILabel *timestamp;
 @property (nonatomic, weak) IBOutlet UIImageView *star1;
 @property (nonatomic, weak) IBOutlet UIImageView *star2;

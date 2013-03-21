@@ -10,11 +10,10 @@
 #import "ImageDownloader.h"
 #import "GPUImage.h"
 
-@interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, ImageDownloaderDelegate, UIGestureRecognizerDelegate> {
+@interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, ImageDownloaderDelegate> {
     NSMutableArray *feedTable;
     NSMutableDictionary *imageDownloadsInProgress;
     UIBarButtonItem * refresh;
-    UITapGestureRecognizer *tap;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *myTable;

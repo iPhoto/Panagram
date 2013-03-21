@@ -10,7 +10,8 @@
 #define Panagram_Constant_h
 
 //======================= URL ======================
-#define SERVER_URL
+//#define SERVER_URL
+static const NSString *SERVER_URL = @"http://192.168.0.102:8888";
 //======================== URL End=====================
 
 #endif

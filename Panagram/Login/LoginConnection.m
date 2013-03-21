@@ -10,6 +10,7 @@
 
 
 #import "LoginConnection.h"
+#import "Constant.h"
 
 @implementation LoginConnection
 
@@ -34,7 +35,7 @@
  */
 - (void)createConnection: (NSString *) username : (NSString *)password
 {
-    NSString* link = @"http://192.168.0.102:8888/include_php/loginData.php";
+    NSString* link = [NSString stringWithFormat:@"%@/include_php/loginData.php", SERVER_URL];
     NSMutableURLRequest *theRequest=[NSMutableURLRequest
                                      requestWithURL:[NSURL URLWithString: link]
                                      cachePolicy:NSURLRequestUseProtocolCachePolicy

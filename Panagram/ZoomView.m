@@ -18,10 +18,6 @@
 
 @implementation ZoomView
 
-@synthesize scrollView = _scrollView;
-
-@synthesize imageView = _imageView;
-
 - (void)centerScrollViewContents {
     CGSize boundsSize = self.scrollView.bounds.size;
     CGRect contentsFrame = self.imageView.frame;
