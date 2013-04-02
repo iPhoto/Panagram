@@ -47,6 +47,14 @@
 }
 
 - (void)fetchedData:(NSData *)responseData {
+    if (!responseData) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Failed"
+                                                        message:@"Could not connect to server! Check Your Network Connection" delegate:nil
+                                              cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        alert = nil;
+        return;
+    }
     NSError* error;
     NSArray *json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
     FeedEntry *fs;
@@ -58,7 +66,7 @@
                 fs = [[FeedEntry alloc] init];
                 [fs setUsername:[entry objectForKey:@"username"]];
                 [fs setAvatarURL:[entry objectForKey:@"avatarURL"]];
-                [fs setImageURL:[entry objectForKey:@"imageURL"]];
+                [fs setImageURL:[NSString stringWithFormat:@"%@/%@", SERVER_URL, [entry objectForKey:@"imageURL"]]];
                 [fs setRating:[[entry objectForKey:@"rating"] floatValue]];
                 [fs setDescription:[entry objectForKey:@"imgDesc"]];
                 [fs setTimestamp:[entry objectForKey:@"timestamp"]];

@@ -11,7 +11,7 @@
 
 //======================= URL ======================
 //#define SERVER_URL
-static const NSString *SERVER_URL = @"http://192.168.0.102:8888";
+static const NSString *SERVER_URL = @"http://192.168.0.102";
 //======================== URL End=====================
 
 #endif

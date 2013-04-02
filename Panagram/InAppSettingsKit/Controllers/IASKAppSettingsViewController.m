@@ -37,6 +37,7 @@ static NSString *kIASKCredits = @"Powered by InAppSettingsKit"; // Leave this as
 #define kIASKSpecifierChildViewControllerIndex        1
 
 #define kIASKCreditsViewWidth                         285
+#define kIASKMinimumScaleFactor						  0.75
 
 CGRect IASKCGRectSwap(CGRect rect);
 
@@ -490,8 +491,8 @@ CGRect IASKCGRectSwap(CGRect rect);
 	} else {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
 	}
-	cell.textLabel.minimumFontSize = kIASKMinimumFontSize;
-	cell.detailTextLabel.minimumFontSize = kIASKMinimumFontSize;
+	cell.textLabel.minimumScaleFactor = kIASKMinimumScaleFactor;
+	cell.detailTextLabel.minimumScaleFactor = kIASKMinimumScaleFactor;
 	return cell;
 }
 
@@ -778,19 +779,9 @@ CGRect IASKCGRectSwap(CGRect rect);
             }
             
             mailViewController.mailComposeDelegate = vc;
-#if (__IPHONE_OS_VERSION_MIN_REQUIRED >= 50000)
-#pragma message "Now that we're iOS5 and up, remove this workaround"
-#endif
-            if([vc respondsToSelector:@selector(presentViewController:animated:completion:)]) {
-                [vc presentViewController:mailViewController
+			[vc presentViewController:mailViewController
                                    animated:YES
                                  completion:nil];
-            } else {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-                [vc presentModalViewController:mailViewController animated:YES];
-#pragma clang diagnostic pop
-            }
             [mailViewController release];
         } else {
             UIAlertView *alert = [[UIAlertView alloc]
@@ -823,20 +814,8 @@ CGRect IASKCGRectSwap(CGRect rect);
                            didFinishWithResult:result 
                                          error:error];
      }
-    
-#if (__IPHONE_OS_VERSION_MIN_REQUIRED >= 50000)
-#pragma message "Now that we're iOS5 and up, remove this workaround"
-#endif
-    if([self respondsToSelector:@selector(dismissViewControllerAnimated:completion:)]) {
-        [self dismissViewControllerAnimated:YES
+    [self dismissViewControllerAnimated:YES
                                  completion:nil];
-    } else {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        [self dismissModalViewControllerAnimated:YES];
-#pragma clang diagnostic pop
-        
-    }
 }
 
 #pragma mark -
